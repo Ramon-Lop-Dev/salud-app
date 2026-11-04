@@ -70,6 +70,7 @@ function showToast(message) {
   toastTimer = setTimeout(() => toastEl.classList.remove('visible'), 3200);
 }
 function navigate(route) {
+  stopVoiceDictation();
   currentRoute = route;
   if (location.hash !== `#/${route}`) location.hash = `/${route}`;
   render();
@@ -148,7 +149,7 @@ function dayView() {
   const moodOptions = MOODS.map((mood) => `<label class="check-row"><input type="radio" name="mood" value="${mood.value}" ${saved?.mood === mood.value ? 'checked' : ''} required /><span>${mood.face} ${mood.label}</span></label>`).join('');
   const profileSymptoms = state.symptomTypes.filter((symptom) => symptom.applies_when !== 'post_implant' || state.profile.pacemakerImplanted);
   const availableSymptoms = profileSymptoms.length ? profileSymptoms.map((symptom) => symptom.name) : SYMPTOMS;
-  return `${pageHead('Registro diario', 'Mi día', 'Cuéntanos con tranquilidad cómo te has sentido hoy. El dictado depende del navegador; la app no guarda el audio original. Revisa el texto antes de guardarlo.')}<form class="stack" id="day-form"><section class="card"><h2>¿Cómo te sientes?</h2><div class="list">${moodOptions}</div></section><section class="card"><h2>¿Notaste algún síntoma?</h2><p class="muted">Selecciona los que hayas sentido hoy.</p><div class="list">${availableSymptoms.map((symptom) => `<label class="check-row"><input type="checkbox" name="symptoms" value="${esc(symptom)}" ${saved?.symptoms?.includes(symptom) ? 'checked' : ''}/><span>${esc(symptom)}</span></label>`).join('')}</div><div class="field" style="margin-top:14px"><label for="severity">Intensidad más alta</label><select name="severity" id="severity"><option value="1">Leve</option><option value="2" ${saved?.symptomRows?.some((item) => item.severity === 2) ? 'selected' : ''}>Media</option><option value="3" ${saved?.symptomRows?.some((item) => item.severity === 3) ? 'selected' : ''}>Fuerte</option></select></div></section><section class="card"><h2>Mediciones (opcionales)</h2><p class="muted">Anota las medidas que te hayan indicado registrar.</p><div class="form-grid two-col"><div class="field"><label for="pulse">Pulso (latidos/min)</label><input id="pulse" name="pulse" type="number" min="20" max="250" inputmode="numeric" value="${esc(saved?.pulse || '')}" placeholder="72" /></div><div class="field"><label for="sleep">Horas de sueño</label><input id="sleep" name="sleep" type="number" min="0" max="24" step="0.5" inputmode="decimal" value="${esc(saved?.sleep || '')}" placeholder="7.5" /></div><div class="field"><label for="systolic">Presión sistólica</label><input id="systolic" name="systolic" type="number" min="50" max="300" inputmode="numeric" value="${esc(saved?.systolic || '')}" placeholder="120" /></div><div class="field"><label for="diastolic">Presión diastólica</label><input id="diastolic" name="diastolic" type="number" min="30" max="200" inputmode="numeric" value="${esc(saved?.diastolic || '')}" placeholder="80" /></div><div class="field"><label for="weight">Peso (kg)</label><input id="weight" name="weight" type="number" min="20" max="300" step="0.1" inputmode="decimal" value="${esc(saved?.weight || '')}" placeholder="70.0" /></div><div class="field"><label for="activity">Actividad diaria</label><select id="activity" name="activity"><option value="">Sin dato</option><option value="1" ${saved?.activity === 1 ? 'selected' : ''}>Normal</option><option value="2" ${saved?.activity === 2 ? 'selected' : ''}>Con dificultad</option><option value="3" ${saved?.activity === 3 ? 'selected' : ''}>Necesité reposo</option></select></div></div></section><section class="card"><div class="field"><label for="day-notes">¿Qué más quieres recordar?</label><textarea id="day-notes" name="notes" maxlength="4000" placeholder="Actividades, descanso u otra observación">${esc(saved?.notes || '')}</textarea><button class="button secondary" type="button" data-action="voice-notes" data-target="day-notes">${icon('mic')} Dictar notas con mi voz</button><span class="hint" id="voice-status" aria-live="polite"></span></div></section><button class="button" type="submit">${icon('check')} Guardar mi día</button></form>`;
+  return `${pageHead('Registro diario', 'Mi día', 'Cuéntanos con tranquilidad cómo te has sentido hoy. El dictado depende del navegador; la app no guarda el audio original. Revisa el texto antes de guardarlo.')}<form class="stack" id="day-form"><section class="card"><h2>¿Cómo te sientes?</h2><div class="list">${moodOptions}</div></section><section class="card"><h2>¿Notaste algún síntoma?</h2><p class="muted">Selecciona los que hayas sentido hoy.</p><div class="list">${availableSymptoms.map((symptom) => `<label class="check-row"><input type="checkbox" name="symptoms" value="${esc(symptom)}" ${saved?.symptoms?.includes(symptom) ? 'checked' : ''}/><span>${esc(symptom)}</span></label>`).join('')}</div><div class="field" style="margin-top:14px"><label for="severity">Intensidad más alta</label><select name="severity" id="severity"><option value="1">Leve</option><option value="2" ${saved?.symptomRows?.some((item) => item.severity === 2) ? 'selected' : ''}>Media</option><option value="3" ${saved?.symptomRows?.some((item) => item.severity === 3) ? 'selected' : ''}>Fuerte</option></select></div></section><section class="card"><h2>Mediciones (opcionales)</h2><p class="muted">Anota las medidas que te hayan indicado registrar.</p><div class="form-grid two-col"><div class="field"><label for="pulse">Pulso (latidos/min)</label><input id="pulse" name="pulse" type="number" min="20" max="250" inputmode="numeric" value="${esc(saved?.pulse || '')}" placeholder="72" /></div><div class="field"><label for="sleep">Horas de sueño</label><input id="sleep" name="sleep" type="number" min="0" max="24" step="0.5" inputmode="decimal" value="${esc(saved?.sleep || '')}" placeholder="7.5" /></div><div class="field"><label for="systolic">Presión sistólica</label><input id="systolic" name="systolic" type="number" min="50" max="300" inputmode="numeric" value="${esc(saved?.systolic || '')}" placeholder="120" /></div><div class="field"><label for="diastolic">Presión diastólica</label><input id="diastolic" name="diastolic" type="number" min="30" max="200" inputmode="numeric" value="${esc(saved?.diastolic || '')}" placeholder="80" /></div><div class="field"><label for="weight">Peso (kg)</label><input id="weight" name="weight" type="number" min="20" max="300" step="0.1" inputmode="decimal" value="${esc(saved?.weight || '')}" placeholder="70.0" /></div><div class="field"><label for="activity">Actividad diaria</label><select id="activity" name="activity"><option value="">Sin dato</option><option value="1" ${saved?.activity === 1 ? 'selected' : ''}>Normal</option><option value="2" ${saved?.activity === 2 ? 'selected' : ''}>Con dificultad</option><option value="3" ${saved?.activity === 3 ? 'selected' : ''}>Necesité reposo</option></select></div></div></section><section class="card"><div class="field"><label for="day-notes">¿Qué más quieres recordar?</label><textarea id="day-notes" name="notes" maxlength="4000" placeholder="Actividades, descanso u otra observación">${esc(saved?.notes || '')}</textarea><button id="voice-button" class="button secondary" type="button" data-action="voice-notes" data-target="day-notes" aria-pressed="false">${icon('mic')} Dictar notas con mi voz</button><span class="hint" id="voice-status" aria-live="polite">Al tocar, permite usar el micrófono. Vuelve a tocar para detener y revisar el texto.</span></div></section><button class="button" type="submit">${icon('check')} Guardar mi día</button></form>`;
 }
 function incidentView() {
   const options = ['Me desmayé', 'Casi me desmayé', 'Mareo fuerte', 'Palpitaciones', 'Dolor o presión en el pecho', 'Falta de aire', 'Caída', 'Otro síntoma'];
@@ -305,35 +306,70 @@ function startVoiceDictation(targetId) {
   const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!Recognition) { showToast('El dictado por voz no está disponible en este navegador.'); return; }
   if (activeRecognition) {
-    activeRecognition.stop(); activeRecognition = null;
-    const currentStatus = document.querySelector('#voice-status');
-    if (currentStatus) currentStatus.textContent = 'Dictado detenido.';
+    stopVoiceDictation();
     return;
   }
   const target = document.getElementById(targetId);
   const status = document.querySelector('#voice-status');
+  const button = document.querySelector('#voice-button');
   if (!target) return;
   const recognition = new Recognition();
   activeRecognition = recognition;
   recognition.lang = 'es-NI'; recognition.interimResults = false; recognition.maxAlternatives = 1;
+  recognition.continuous = true;
+  if (button) { button.setAttribute('aria-pressed', 'true'); button.innerHTML = `${icon('mic')} Detener dictado`; }
   if (status) status.textContent = 'Escuchando… puedes detener el dictado cuando quieras.';
   recognition.onresult = (event) => {
-    const transcript = event.results?.[0]?.[0]?.transcript || '';
+    const transcripts = [];
+    for (let index = event.resultIndex || 0; index < event.results.length; index += 1) {
+      if (event.results[index].isFinal) transcripts.push(event.results[index][0]?.transcript || '');
+    }
+    const transcript = transcripts.join(' ').trim();
+    if (!transcript) return;
     target.value = `${target.value}${target.value ? ' ' : ''}${transcript}`.slice(0, 4000);
     target.dispatchEvent(new Event('input', { bubbles: true }));
     if (status) status.textContent = 'Dictado añadido. Revisa el texto antes de guardar.';
   };
-  recognition.onerror = () => { if (status) status.textContent = 'No se pudo reconocer la voz. Puedes escribir la nota.'; };
-  recognition.onend = () => { if (activeRecognition === recognition) activeRecognition = null; };
-  recognition.start();
+  recognition.onerror = (event) => {
+    const messages = {
+      'not-allowed': 'Permite el micrófono para este sitio desde el icono junto a la dirección y vuelve a intentarlo.',
+      'service-not-allowed': 'El navegador no permite el servicio de dictado. Puedes escribir la nota.',
+      'audio-capture': 'No encontramos un micrófono disponible. Puedes escribir la nota.',
+      network: 'No hay conexión para el dictado en este navegador. Puedes escribir la nota.',
+      'no-speech': 'No escuchamos voz. Vuelve a tocar el botón e intenta hablar más cerca del micrófono.',
+    };
+    const message = messages[event.error] || 'No se pudo iniciar el dictado. Puedes escribir la nota.';
+    if (status) status.textContent = message;
+    showToast(message);
+  };
+  recognition.onend = () => {
+    if (activeRecognition === recognition) activeRecognition = null;
+    if (button) { button.setAttribute('aria-pressed', 'false'); button.innerHTML = `${icon('mic')} Dictar notas con mi voz`; }
+  };
+  try { recognition.start(); }
+  catch {
+    activeRecognition = null;
+    if (button) { button.setAttribute('aria-pressed', 'false'); button.innerHTML = `${icon('mic')} Dictar notas con mi voz`; }
+    if (status) status.textContent = 'No se pudo iniciar el micrófono. Puedes escribir la nota.';
+  }
 }
-function stopVoiceDictation() { activeRecognition?.stop(); activeRecognition = null; }
+function stopVoiceDictation() {
+  const recognition = activeRecognition;
+  if (!recognition) return;
+  activeRecognition = null;
+  recognition.stop();
+  const button = document.querySelector('#voice-button');
+  const status = document.querySelector('#voice-status');
+  if (button) { button.setAttribute('aria-pressed', 'false'); button.innerHTML = `${icon('mic')} Dictar notas con mi voz`; }
+  if (status) status.textContent = 'Dictado detenido. Revisa el texto antes de guardar.';
+}
 
 function formValues(form) { return Object.fromEntries(new FormData(form).entries()); }
 async function onSubmit(event) {
   const form = event.target;
   if (!(form instanceof HTMLFormElement)) return;
   event.preventDefault();
+  stopVoiceDictation();
   const values = formValues(form);
   try {
     if (form.id === 'login-form') {
