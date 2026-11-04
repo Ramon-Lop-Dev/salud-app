@@ -95,7 +95,9 @@ export async function loadUserState(user) {
   state.appointments = (appointments || []).map((item) => ({ id: item.id, title: item.title, doctor: item.doctor_name || '', specialty: item.specialty || '', location: item.location || '', startsAt: item.starts_at, notes: item.notes || '', status: item.status }));
   state.questions = (questions || []).map((item) => ({ id: item.id, text: item.question, answered: item.is_answered, appointmentId: item.appointment_id, answerNotes: item.answer_notes || '' }));
   state.incidents = (episodes || []).map((item) => ({
-    id: item.id, date: item.occurred_at.slice(0, 10), time: item.occurred_at.slice(11, 16), symptom: item.episode_type,
+    id: item.id, date: localDateISO(new Date(item.occurred_at)),
+    time: new Intl.DateTimeFormat('es', { timeZone: profileTimezone, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date(item.occurred_at)),
+    symptom: item.episode_type,
     severity: item.severity ?? 1, duration: item.duration, position: item.position_before, notes: item.description || '',
   }));
   state.intakes = Object.fromEntries((todayIntakes || []).map((item) => {
