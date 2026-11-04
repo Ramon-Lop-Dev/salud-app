@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mi Salud - Inicio</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Atkinson Hyperlegible Next & fallback Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400..700;1,400..700&amp;family=Be+Vietnam+Pro:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-container": "#753d00",
+            "primary-fixed": "#d1e4ff",
+            "secondary": "#1b6d24",
+            "primary-fixed-dim": "#a0cafc",
+            "outline-variant": "#c2c7d0",
+            "surface-dim": "#e0d8d5",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed-dim": "#88d982",
+            "surface-container": "#f4ece8",
+            "secondary-fixed": "#a3f69c",
+            "surface-bright": "#fff8f5",
+            "on-primary-fixed": "#001d35",
+            "primary": "#00375e",
+            "tertiary-fixed": "#ffdcc3",
+            "outline": "#72777f",
+            "on-surface-variant": "#42474f",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "surface-variant": "#e9e1dd",
+            "primary-container": "#1f4e79",
+            "tertiary-fixed-dim": "#ffb77d",
+            "on-tertiary-fixed": "#2f1500",
+            "on-secondary-container": "#217128",
+            "on-primary-container": "#95bff1",
+            "on-tertiary-container": "#ffa85e",
+            "on-error": "#ffffff",
+            "on-surface": "#1e1b19",
+            "on-secondary-fixed-variant": "#005312",
+            "inverse-surface": "#33302d",
+            "on-error-container": "#93000a",
+            "secondary-container": "#a0f399",
+            "surface-container-low": "#faf2ee",
+            "surface-tint": "#35618d",
+            "on-secondary-fixed": "#002204",
+            "surface-container-high": "#eee7e3",
+            "background": "#fff8f5",
+            "surface-container-highest": "#e9e1dd",
+            "error-container": "#ffdad6",
+            "inverse-on-surface": "#f7efeb",
+            "surface-container-lowest": "#ffffff",
+            "inverse-primary": "#a0cafc",
+            "surface": "#fff8f5",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "tertiary": "#542a00",
+            "on-background": "#1e1b19",
+            "on-primary-fixed-variant": "#184974"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.5rem",
+            "space-sm": "0.75rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.75rem",
+            "margin": "1.25rem",
+            "space-md": "1.25rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "label-md": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-sm": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "label-sm": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "body-xl": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "body-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "label-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-md": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "body-md": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-lg": ["Atkinson Hyperlegible Next", "sans-serif"]
+          },
+          "fontSize": {
+            "display-lg": ["36px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-md": ["18px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+            "label-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-xl": ["20px", { "lineHeight": "32px", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "label-lg": ["20px", { "lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "34px", "fontWeight": "700" }],
+            "body-md": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      font-family: "Atkinson Hyperlegible Next", "Be Vietnam Pro", sans-serif;
+      background-color: #fff8f5;
+      color: #1e1b19;
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center antialiased">
+<!-- Mobile shell centered with maximum accessibility container -->
+<div class="relative flex h-auto min-h-screen w-full max-w-md flex-col bg-background pb-32">
+<!-- Top App Bar for Seniors with Voice and Text Magnifier -->
+<header class="sticky top-0 z-20 flex items-center justify-between border-b border-surface-container-high bg-background/95 backdrop-blur-md px-5 py-4">
+<div class="flex items-center gap-3">
+<div class="flex size-12 items-center justify-center rounded-full bg-primary-fixed text-primary font-bold shadow-sm">
+<span class="material-symbols-outlined text-3xl" data-icon="favorite_border">favorite_border</span>
+</div>
+<div>
+<span class="text-xs uppercase tracking-wider font-bold text-on-surface-variant block">App Familiar</span>
+<h2 class="text-headline-sm font-bold text-primary leading-tight">Mi Salud</h2>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Audio Assistance Button -->
+<button aria-label="Escuchar la pantalla en voz alta" class="flex size-12 items-center justify-center rounded-full bg-surface-container hover:bg-surface-container-high text-primary border border-outline-variant/40 active:scale-95 transition-transform" onclick="alert('Función de lectura en voz alta activada. Leyendo estado del día...')">
+<span class="material-symbols-outlined text-2xl" data-icon="volume_up">volume_up</span>
+</button>
+<!-- Adjust Text Size -->
+<button aria-label="Aumentar tamaño de letra" class="flex size-12 items-center justify-center rounded-full bg-surface-container hover:bg-surface-container-high text-primary border border-outline-variant/40 active:scale-95 transition-transform" onclick="alert('Tamaño de letra optimizado para lectura cómoda.')">
+<span class="material-symbols-outlined text-2xl" data-icon="format_size">format_size</span>
+</button>
+</div>
+</header>
+<!-- Main Content Flow -->
+<main class="flex flex-col gap-6 px-4 pt-5 pb-6">
+<!-- 1. Saludo cálido y personalizado -->
+<section aria-labelledby="greeting-title" class="rounded-2xl bg-surface-container-lowest p-5 border border-outline-variant/30 shadow-sm">
+<div class="flex items-start justify-between">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-sm font-bold mb-2">
+<span class="material-symbols-outlined text-base" data-icon="wb_sunny">wb_sunny</span>
+<span>Día despejado</span>
+</div>
+<h1 class="text-headline-lg font-bold text-primary tracking-tight" id="greeting-title">
+              Buenos días, Carmen
+            </h1>
+<p class="text-body-md text-on-surface-variant font-medium mt-1">
+              Hoy es <strong class="text-on-surface font-bold">Miércoles, 24 de Octubre</strong>
+</p>
+</div>
+<div class="size-14 rounded-full overflow-hidden border-2 border-primary-fixed shrink-0 ml-3">
+<img class="w-full h-full object-cover" data-alt="A warm and gentle portrait of an older Hispanic grandmother named Carmen with silvery hair, soft kind eyes, wearing a comfortable knitted emerald cardigan against a warm sunlit cozy living room background, high resolution photo with natural lighting and soft focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDpmMftmkW99Yut8k1HB25yUdT1FueXJza0fbbKaMPltrdH1r6RDnlFcG6QYbzSNY8uME9C3t2CzKxccQCT3SK_nFum044acSH4fkqUsA-m9JhZyQnc1b48G62fLoD81u7udvWb0coDgdg3G1rY_j-jOTixqCsgBZOx7h7JUDZq4JQjmCSckSm9OgKDpTdZsAPvbqF30qFZdLYSXgytSQnQ5RYUe5U66DwIc5Gfvs"/>
+</div>
+</div>
+</section>
+<!-- 5. Botón destacado prioritario: "Me pasó algo ahora" (Avisador Inmediato) -->
+<section aria-label="Aviso y Ayuda Inmediata">
+<button class="w-full min-h-[64px] rounded-2xl bg-tertiary-container hover:bg-tertiary text-on-tertiary p-4 flex items-center justify-between gap-4 border-2 border-on-tertiary-container shadow-md active:scale-[0.98] transition-all duration-150" onclick="handleEmergencyAlert()">
+<div class="flex size-14 shrink-0 items-center justify-center rounded-xl bg-on-tertiary/20 text-on-tertiary">
+<span class="material-symbols-outlined text-3xl font-bold" data-icon="pan_tool">pan_tool</span>
+</div>
+<div class="flex flex-col text-left flex-1">
+<span class="text-label-lg font-bold text-white tracking-wide leading-tight">Me pasó algo ahora</span>
+<span class="text-label-sm font-medium text-tertiary-fixed mt-0.5 leading-snug">Avisar a mi familiar o pedir ayuda rápida</span>
+</div>
+<div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-white/20">
+<span class="material-symbols-outlined text-2xl text-white" data-icon="arrow_forward_ios">arrow_forward_ios</span>
+</div>
+</button>
+</section>
+<!-- 2. Tarjeta: "¿Cómo te sientes hoy?" -->
+<section aria-labelledby="mood-title" class="rounded-2xl bg-surface-container-lowest p-5 border border-outline-variant/30 shadow-sm">
+<div class="mb-3">
+<h2 class="text-headline-md font-bold text-primary" id="mood-title">
+            ¿Cómo te sientes hoy?
+          </h2>
+<p class="text-body-md text-on-surface-variant mt-1">
+            Toca la carita que mejor describa tu estado en este momento:
+          </p>
+</div>
+<!-- 5 Botones de Estado Emocional/Físico con tamaños amplios (>= 56px de alto) -->
+<div aria-label="Selección de estado de ánimo" class="grid grid-cols-5 gap-2 pt-2" role="radiogroup">
+<!-- 1: Muy mal -->
+<button aria-checked="false" class="mood-btn group flex flex-col items-center justify-between min-h-[92px] p-2 rounded-xl border-2 border-outline-variant/40 bg-surface hover:bg-error-container/40 active:scale-95 transition-all text-center focus:outline-none focus:ring-4 focus:ring-error/30" onclick="selectMood(this, 'Muy mal')" role="radio" type="button">
+<div class="size-14 rounded-full bg-error-container flex items-center justify-center text-error border border-error/20 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="sentiment_very_dissatisfied">sentiment_very_dissatisfied</span>
+</div>
+<span class="text-xs font-bold text-on-surface mt-2 leading-tight">Muy mal</span>
+</button>
+<!-- 2: Regular -->
+<button aria-checked="false" class="mood-btn group flex flex-col items-center justify-between min-h-[92px] p-2 rounded-xl border-2 border-outline-variant/40 bg-surface hover:bg-surface-variant active:scale-95 transition-all text-center focus:outline-none focus:ring-4 focus:ring-outline/30" onclick="selectMood(this, 'Regular')" role="radio" type="button">
+<div class="size-14 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant border border-outline-variant group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="sentiment_neutral">sentiment_neutral</span>
+</div>
+<span class="text-xs font-bold text-on-surface mt-2 leading-tight">Regular</span>
+</button>
+<!-- 3: Bien (Activo por defecto) -->
+<button aria-checked="true" class="mood-btn selected group flex flex-col items-center justify-between min-h-[92px] p-2 rounded-xl border-2 border-primary bg-primary-fixed/40 active:scale-95 transition-all text-center focus:outline-none focus:ring-4 focus:ring-primary/40" onclick="selectMood(this, 'Bien')" role="radio" type="button">
+<div class="size-14 rounded-full bg-primary-container flex items-center justify-center text-white border border-primary shadow-sm group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="sentiment_satisfied">sentiment_satisfied</span>
+</div>
+<span class="text-xs font-bold text-primary mt-2 leading-tight">Bien</span>
+</button>
+<!-- 4: Muy bien -->
+<button aria-checked="false" class="mood-btn group flex flex-col items-center justify-between min-h-[92px] p-2 rounded-xl border-2 border-outline-variant/40 bg-surface hover:bg-secondary-fixed/50 active:scale-95 transition-all text-center focus:outline-none focus:ring-4 focus:ring-secondary/30" onclick="selectMood(this, 'Muy bien')" role="radio" type="button">
+<div class="size-14 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary border border-secondary/20 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="mood">mood</span>
+</div>
+<span class="text-xs font-bold text-on-surface mt-2 leading-tight">Muy bien</span>
+</button>
+<!-- 5: Excelente -->
+<button aria-checked="false" class="mood-btn group flex flex-col items-center justify-between min-h-[92px] p-2 rounded-xl border-2 border-outline-variant/40 bg-surface hover:bg-amber-100 active:scale-95 transition-all text-center focus:outline-none focus:ring-4 focus:ring-tertiary-container/30" onclick="selectMood(this, 'Excelente')" role="radio" type="button">
+<div class="size-14 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary-container border border-tertiary-container/30 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="sentiment_very_satisfied">sentiment_very_satisfied</span>
+</div>
+<span class="text-xs font-bold text-on-surface mt-2 leading-tight">Excelente</span>
+</button>
+</div>
+<div class="mt-4 p-3 rounded-xl bg-surface-container flex items-center gap-3 border border-outline-variant/20" id="mood-feedback">
+<span class="material-symbols-outlined text-secondary text-2xl shrink-0" data-icon="check_circle">check_circle</span>
+<p class="text-body-md text-on-surface leading-snug">
+            Has marcado que te sientes <strong class="font-bold text-primary">"Bien"</strong>. ¡Nos alegra mucho, Carmen!
+          </p>
+</div>
+</section>
+<!-- 3. Tarjeta destacada: "Próxima cita médica" -->
+<section aria-labelledby="appointment-title" class="rounded-2xl bg-surface-container-lowest p-5 border-2 border-primary-fixed-dim/60 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary-fixed/20 rounded-bl-full pointer-events-none"></div>
+<div class="flex items-center gap-3 mb-3">
+<div class="size-12 rounded-xl bg-primary-container text-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-2xl" data-icon="calendar_month">calendar_month</span>
+</div>
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-primary">Recordatorio médico</span>
+<h2 class="text-headline-md font-bold text-on-surface leading-tight" id="appointment-title">
+              Próxima cita médica
+            </h2>
+</div>
+</div>
+<!-- Bloque de Fecha y Hora en Grande -->
+<div class="bg-primary-fixed/30 rounded-xl p-4 my-3 border border-primary-fixed-dim/50">
+<p class="text-label-sm font-semibold text-primary">Faltan 2 días para tu cita:</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-headline-lg font-bold text-primary">Jueves, 26 de Octubre</span>
+</div>
+<div class="flex items-center gap-2 mt-2 text-on-surface text-body-xl font-bold">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="schedule">schedule</span>
+<span>10:30 de la mañana</span>
+</div>
+</div>
+<!-- Doctor y Especialidad -->
+<div class="space-y-3 py-2">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-2xl mt-0.5 shrink-0" data-icon="stethoscope">stethoscope</span>
+<div>
+<p class="text-body-lg font-bold text-on-surface">Dr. Roberto Silva</p>
+<p class="text-body-md text-on-surface-variant font-medium">Especialidad: Cardiología</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-2xl mt-0.5 shrink-0" data-icon="pin_drop">pin_drop</span>
+<div>
+<p class="text-body-lg font-semibold text-on-surface">Centro Médico San Rafael</p>
+<p class="text-body-md text-on-surface-variant">Consultorio 204 — Segundo piso (Hay ascensor)</p>
+</div>
+</div>
+</div>
+<!-- Botón de acción táctil grande (>= 56px) -->
+<button class="w-full min-h-[56px] mt-4 rounded-xl border-2 border-primary bg-surface hover:bg-primary-fixed/20 text-primary flex items-center justify-center gap-3 px-4 font-bold text-label-md active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-2xl" data-icon="navigation">navigation</span>
+<span>Ver detalles o cómo llegar</span>
+</button>
+</section>
+<!-- 4. Tarjeta "Medicinas de hoy" -->
+<section aria-labelledby="meds-title" class="rounded-2xl bg-surface-container-lowest p-5 border border-outline-variant/30 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-xl bg-secondary-fixed text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl" data-icon="medication">medication</span>
+</div>
+<div>
+<h2 class="text-headline-md font-bold text-on-surface leading-tight" id="meds-title">
+                Medicinas de hoy
+              </h2>
+<p class="text-body-md text-on-surface-variant">Tienes 1 toma pendiente para la tarde</p>
+</div>
+</div>
+</div>
+<!-- Lista de tomas -->
+<div class="flex flex-col gap-4">
+<!-- Medicina Pendiente (Enalapril) -->
+<div class="rounded-xl border-2 border-secondary p-4 bg-secondary-fixed/10 transition-all" id="card-enalapril">
+<div class="flex items-start justify-between gap-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-full bg-amber-500 animate-pulse"></span>
+<span class="text-xs font-bold uppercase tracking-wider text-amber-900 bg-amber-200/80 px-2 py-0.5 rounded-full">
+                  Próxima toma
+                </span>
+</div>
+<span class="text-body-md font-bold text-primary bg-primary-fixed px-2.5 py-0.5 rounded-lg">1:30 PM</span>
+</div>
+<h3 class="text-headline-sm font-bold text-on-surface">Enalapril 10 mg</h3>
+<p class="text-body-md text-on-surface-variant font-medium mt-1">
+              Tomar con el almuerzo (1:30 PM) con un vaso entero de agua.
+            </p>
+<!-- Botón Grande, Prominente y Táctil (>= 56px de alto) -->
+<button class="w-full min-h-[58px] mt-4 rounded-xl bg-secondary hover:bg-secondary/90 text-on-secondary flex items-center justify-center gap-3 text-label-md font-bold shadow-md active:scale-[0.98] transition-all border-2 border-secondary" id="btn-take-enalapril" onclick="marcarMedicinaTomada()">
+<span class="material-symbols-outlined text-3xl font-bold" data-icon="done">done</span>
+<span>✓ Ya la tomé</span>
+</button>
+</div>
+<!-- Medicina ya tomada (Omeprazol) -->
+<div class="rounded-xl border border-outline-variant/40 p-4 bg-surface-container-low opacity-95">
+<div class="flex items-center justify-between">
+<div>
+<span class="inline-flex items-center gap-1.5 text-xs font-bold text-secondary bg-secondary-container px-2.5 py-1 rounded-full mb-1">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="check">check</span>
+                  Ya registrada hoy
+                </span>
+<h3 class="text-headline-sm font-bold text-on-surface mt-1">Omeprazol 20 mg</h3>
+<p class="text-body-md text-on-surface-variant font-normal">
+                  Tomada a las 8:00 AM (en ayunas)
+                </p>
+</div>
+<div class="size-12 rounded-full bg-secondary-container text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl font-bold" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Enlace accesible a todas las medicinas -->
+<a class="w-full min-h-[54px] mt-5 rounded-xl bg-surface-container hover:bg-surface-container-high border border-outline-variant text-primary font-bold text-label-md flex items-center justify-center gap-2 transition-colors" href="#medicinas">
+<span>Ver todas mis medicinas del día</span>
+<span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</section>
+<!-- Tarjeta extra de Tranquilidad: Contacto Familiar de Confianza -->
+<section class="rounded-2xl bg-surface-container-lowest p-5 border border-outline-variant/30 flex items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold">
+<span class="material-symbols-outlined text-2xl" data-icon="contact_phone">contact_phone</span>
+</div>
+<div>
+<p class="text-label-sm font-bold text-on-surface">Contacto de apoyo: Lucía (Hija)</p>
+<p class="text-body-md text-on-surface-variant">Conectada para cuidarte</p>
+</div>
+</div>
+<button class="min-h-[48px] px-4 rounded-xl bg-primary text-white font-bold text-label-sm flex items-center gap-2 active:scale-95 shadow-sm" onclick="alert('Llamando a Lucía...')">
+<span class="material-symbols-outlined text-xl" data-icon="call">call</span>
+<span>Llamar</span>
+</button>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Shared Component exact representation with 'Inicio' active) -->
+<nav aria-label="Navegación principal" class="fixed bottom-0 left-0 right-0 z-30 max-w-md mx-auto border-t border-[#e9edf1] bg-gray-50 px-4 pb-3 pt-2 shadow-lg">
+<div class="flex gap-2 w-full">
+<!-- Inicio (Active) -->
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-[#101519]" href="#">
+<div class="text-[#101519] flex h-8 items-center justify-center" data-icon="House" data-size="24px" data-weight="fill">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M224,115.55V208a16,16,0,0,1-16,16H168a16,16,0,0,1-16-16V168a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v40a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V115.55a16,16,0,0,1,5.17-11.78l80-75.48.11-.11a16,16,0,0,1,21.53,0,1.14,1.14,0,0,0,.11.11l80,75.48A16,16,0,0,1,224,115.55Z"></path>
+</svg>
+</div>
+<p class="text-[#101519] text-xs font-bold leading-normal tracking-[0.015em]">Inicio</p>
+</a>
+<!-- Medicinas -->
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#57748e]" href="#">
+<div class="text-[#57748e] flex h-8 items-center justify-center" data-icon="Binoculars" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M237.2,151.87v0a47.1,47.1,0,0,0-2.35-5.45L193.26,51.8a7.82,7.82,0,0,0-1.66-2.44,32,32,0,0,0-45.26,0A8,8,0,0,0,144,55V80H112V55a8,8,0,0,0-2.34-5.66,32,32,0,0,0-45.26,0,7.82,7.82,0,0,0-1.66,2.44L21.15,146.4a47.1,47.1,0,0,0-2.35,5.45v0A48,48,0,1,0,112,168V96h32v72a48,48,0,1,0,93.2-16.13ZM76.71,59.75a16,16,0,0,1,19.29-1v73.51a47.9,47.9,0,0,0-46.79-9.92ZM64,200a32,32,0,1,1,32-32A32,32,0,0,1,64,200ZM160,58.74a16,16,0,0,1,19.29,1l27.5,62.58A47.9,47.9,0,0,0,160,132.25ZM192,200a32,32,0,1,1,32-32A32,32,0,0,1,192,200Z"></path>
+</svg>
+</div>
+<p class="text-[#57748e] text-xs font-medium leading-normal tracking-[0.015em]">Medicinas</p>
+</a>
+<!-- Citas -->
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#57748e]" href="#">
+<div class="text-[#57748e] flex h-8 items-center justify-center" data-icon="CloudSlash" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M53.92,34.62A8,8,0,1,0,42.08,45.38L81.32,88.55l-.06.12A65,65,0,0,0,72,88a64,64,0,0,0,0,128h88a87.34,87.34,0,0,0,31.8-5.93l10.28,11.31a8,8,0,1,0,11.84-10.76ZM160,200H72a48,48,0,0,1,0-96c1.1,0,2.2,0,3.3.12A88.4,88.4,0,0,0,72,128a8,8,0,0,0,16,0,72.25,72.25,0,0,1,5.06-26.54l87,95.7A71.66,71.66,0,0,1,160,200Zm88-72a87.89,87.89,0,0,1-22.35,58.61A8,8,0,0,1,213.71,176,72,72,0,0,0,117.37,70a8,8,0,0,1-9.48-12.89A88,88,0,0,1,248,128Z"></path>
+</svg>
+</div>
+<p class="text-[#57748e] text-xs font-medium leading-normal tracking-[0.015em]">Citas</p>
+</a>
+<!-- Perfil -->
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#57748e]" href="#">
+<div class="text-[#57748e] flex h-8 items-center justify-center" data-icon="NumberSquareFour" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm0,176H48V48H208V208Zm-40-64a8,8,0,0,1-8,8h-8v24a8,8,0,0,1-16,0V152H96a8,8,0,0,1-7.59-10.53l24-72a8,8,0,0,1,15.18,5.06L107.1,136H136V112a8,8,0,0,1,16,0v24h8A8,8,0,0,1,168,144Z"></path>
+</svg>
+</div>
+<p class="text-[#57748e] text-xs font-medium leading-normal tracking-[0.015em]">Perfil</p>
+</a>
+</div>
+</nav>
+</div>
+<!-- Accessible Micro-interactions and Toast Scripts -->
+<script>
+    // State Selection for Moods
+    function selectMood(button, moodText) {
+      document.querySelectorAll('.mood-btn').forEach(btn => {
+        btn.classList.remove('border-primary', 'bg-primary-fixed/40', 'border-2');
+        btn.classList.add('border-outline-variant/40', 'bg-surface');
+        btn.setAttribute('aria-checked', 'false');
+      });
+
+      button.classList.remove('border-outline-variant/40', 'bg-surface');
+      button.classList.add('border-primary', 'bg-primary-fixed/40', 'border-2');
+      button.setAttribute('aria-checked', 'true');
+
+      const feedback = document.getElementById('mood-feedback');
+      if (feedback) {
+        feedback.innerHTML = `
+          <span class="material-symbols-outlined text-secondary text-2xl shrink-0" data-icon="check_circle">check_circle</span>
+          <p class="text-body-md text-on-surface leading-snug">
+            Has marcado que te sientes <strong class="font-bold text-primary">"${moodText}"</strong>. ¡Gracias por compartirlo, Carmen!
+          </p>
+        `;
+      }
+    }
+
+    // Medicine Confirmation Micro-interaction
+    function marcarMedicinaTomada() {
+      const card = document.getElementById('card-enalapril');
+      const btn = document.getElementById('btn-take-enalapril');
+
+      btn.innerHTML = `<span class="material-symbols-outlined text-2xl" data-icon="check_circle">check_circle</span> Registrado con éxito`;
+      btn.className = "w-full min-h-[58px] mt-4 rounded-xl bg-secondary-container text-secondary flex items-center justify-center gap-3 text-label-md font-bold border-2 border-secondary cursor-default pointer-events-none";
+
+      card.className = "rounded-xl border border-secondary/40 p-4 bg-secondary-fixed/20 transition-all";
+
+      const badge = card.querySelector('.animate-pulse');
+      if (badge) {
+        badge.classList.remove('bg-amber-500', 'animate-pulse');
+        badge.classList.add('bg-secondary');
+      }
+    }
+
+    // Emergency Contact Trigger with reassurance
+    function handleEmergencyAlert() {
+      const conf = confirm("¿Deseas enviar una alerta de ayuda rápida a tu familiar Lucía y mostrar el teléfono de asistencia médica?");
+      if (conf) {
+        alert("¡Mensaje enviado a Lucía! Hemos notificado que necesitas asistencia. Mantén la calma, te están llamando ahora.");
+      }
+    }
+  </script>
+</body></html>

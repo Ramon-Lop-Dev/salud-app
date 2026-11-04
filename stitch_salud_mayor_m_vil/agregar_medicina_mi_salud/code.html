@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agregar Nueva Medicina - Mi Salud</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#542a00",
+            "on-secondary-container": "#217128",
+            "outline": "#72777f",
+            "background": "#fff8f5",
+            "surface-container-low": "#faf2ee",
+            "secondary-container": "#a0f399",
+            "primary-fixed-dim": "#a0cafc",
+            "on-secondary-fixed": "#002204",
+            "inverse-on-surface": "#f7efeb",
+            "on-primary-fixed": "#001d35",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "on-primary-container": "#95bff1",
+            "outline-variant": "#c2c7d0",
+            "surface-container-high": "#eee7e3",
+            "surface-bright": "#fff8f5",
+            "surface": "#fff8f5",
+            "on-secondary-fixed-variant": "#005312",
+            "on-background": "#1e1b19",
+            "tertiary-fixed": "#ffdcc3",
+            "surface-dim": "#e0d8d5",
+            "surface-tint": "#35618d",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed": "#2f1500",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#88d982",
+            "primary": "#00375e",
+            "inverse-surface": "#33302d",
+            "on-error": "#ffffff",
+            "inverse-primary": "#a0cafc",
+            "secondary": "#1b6d24",
+            "surface-container": "#f4ece8",
+            "error-container": "#ffdad6",
+            "on-surface-variant": "#42474f",
+            "tertiary-container": "#753d00",
+            "surface-variant": "#e9e1dd",
+            "surface-container-highest": "#e9e1dd",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#1e1b19",
+            "secondary-fixed": "#a3f69c",
+            "primary-fixed": "#d1e4ff",
+            "surface-container-lowest": "#ffffff",
+            "on-error-container": "#93000a",
+            "primary-container": "#1f4e79",
+            "on-primary-fixed-variant": "#184974",
+            "tertiary-fixed-dim": "#ffb77d",
+            "on-tertiary-container": "#ffa85e",
+            "error": "#ba1a1a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.75rem",
+            "gutter": "1rem",
+            "margin": "1.25rem",
+            "space-xs": "0.5rem",
+            "space-lg": "1.75rem",
+            "space-md": "1.25rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "body-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "body-xl": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "body-md": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "label-sm": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "label-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-md": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "label-md": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-sm": ["Atkinson Hyperlegible Next", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased font-body-lg min-h-screen pb-16">
+<div class="max-w-2xl mx-auto px-4 sm:px-6 pt-4">
+<!-- 1. Encabezado y Navegación "Back-to-Main" -->
+<header class="mb-6">
+<a aria-label="Volver a la lista de mis medicinas" class="inline-flex items-center gap-2 py-3 px-4 rounded-xl bg-surface-container hover:bg-surface-variant text-primary font-headline-sm min-h-[52px] border border-outline-variant transition-colors" href="#">
+<span aria-hidden="true" class="material-symbols-outlined text-[28px]">arrow_back</span>
+<span>Volver a Mis Medicinas</span>
+</a>
+<div class="mt-6 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-3 text-primary mb-2">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">medication</span>
+<span class="text-label-md font-bold uppercase tracking-wider text-primary">Paso a paso guiado</span>
+</div>
+<h1 class="text-display-lg text-primary font-bold leading-tight">
+          Agregar Nueva Medicina
+        </h1>
+<p class="text-body-xl text-on-surface-variant mt-3 leading-relaxed">
+          Completa los datos de tu medicamento paso a paso. Te avisaremos con una alarma clara y sonora a cada hora que elijas.
+        </p>
+</div>
+</header>
+<form class="space-y-6" onsubmit="event.preventDefault();">
+<!-- Campo 1: Nombre de la medicina -->
+<section class="bg-surface-container-lowest rounded-xl p-6 border-2 border-outline-variant shadow-sm">
+<label class="block text-headline-md text-on-surface font-bold mb-2" for="medicine-name">
+          1. ¿Cómo se llama la medicina? <span aria-hidden="true" class="text-error">*</span>
+</label>
+<p class="text-body-md text-on-surface-variant mb-4">Escribe el nombre que aparece en la caja o receta.</p>
+<div class="relative">
+<input class="w-full min-h-[58px] text-body-xl px-4 py-3 bg-surface border-2 border-outline rounded-xl focus:border-primary focus:ring-4 focus:ring-primary-fixed text-on-surface placeholder:text-outline font-medium" id="medicine-name" name="medicine_name" placeholder="Ejemplo: Enalapril, Paracetamol, Sintrom..." required="" type="text"/>
+</div>
+<!-- Botón dictar con voz -->
+<button class="mt-4 w-full min-h-[54px] flex items-center justify-center gap-3 px-5 py-3 rounded-xl bg-surface-container-high border-2 border-outline-variant hover:bg-surface-variant active:scale-[0.99] text-primary font-label-lg transition-all" id="btn-voice-name" type="button">
+<span class="material-symbols-outlined text-2xl text-tertiary-container" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span>Dictar nombre con mi voz</span>
+</button>
+<!-- Sugerencias rápidas -->
+<div class="mt-5 pt-4 border-t border-surface-variant">
+<span class="block text-label-md text-on-surface-variant mb-3 font-semibold">Toca una medicina habitual si es esta:</span>
+<div class="flex flex-wrap gap-2.5">
+<button class="min-h-[48px] px-4 py-2.5 rounded-full bg-surface-container border border-outline text-body-md font-bold text-on-surface hover:bg-secondary-container hover:text-on-secondary-fixed transition-colors" onclick="setMedicineName('Enalapril')" type="button">
+              + Enalapril
+            </button>
+<button class="min-h-[48px] px-4 py-2.5 rounded-full bg-surface-container border border-outline text-body-md font-bold text-on-surface hover:bg-secondary-container hover:text-on-secondary-fixed transition-colors" onclick="setMedicineName('Omeprazol')" type="button">
+              + Omeprazol
+            </button>
+<button class="min-h-[48px] px-4 py-2.5 rounded-full bg-surface-container border border-outline text-body-md font-bold text-on-surface hover:bg-secondary-container hover:text-on-secondary-fixed transition-colors" onclick="setMedicineName('Paracetamol')" type="button">
+              + Paracetamol
+            </button>
+<button class="min-h-[48px] px-4 py-2.5 rounded-full bg-surface-container border border-outline text-body-md font-bold text-on-surface hover:bg-secondary-container hover:text-on-secondary-fixed transition-colors" onclick="setMedicineName('Metformina')" type="button">
+              + Metformina
+            </button>
+</div>
+</div>
+</section>
+<!-- Campo 2: Dosis y presentación -->
+<section class="bg-surface-container-lowest rounded-xl p-6 border-2 border-outline-variant shadow-sm">
+<label class="block text-headline-md text-on-surface font-bold mb-2" for="medicine-dose">
+          2. Dosis y forma <span aria-hidden="true" class="text-error">*</span>
+</label>
+<p class="text-body-md text-on-surface-variant mb-4">¿Cuánto debes tomar y qué tipo de medicina es?</p>
+<!-- Campo Cantidad / Dosis -->
+<div class="mb-5">
+<label class="block text-label-md font-bold text-on-surface mb-2" for="medicine-dose">Cantidad o miligramos:</label>
+<input class="w-full min-h-[58px] text-body-xl px-4 py-3 bg-surface border-2 border-outline rounded-xl focus:border-primary focus:ring-4 focus:ring-primary-fixed text-on-surface placeholder:text-outline font-medium" id="medicine-dose" name="medicine_dose" placeholder="Ejemplo: 10 mg, 20 mg, 500 mg o 1 pastilla" type="text"/>
+</div>
+<!-- Forma Farmacéutica -->
+<div>
+<span class="block text-label-md font-bold text-on-surface mb-3">Forma de la medicina:</span>
+<div aria-label="Forma farmacéutica" class="grid grid-cols-2 gap-3" role="radiogroup">
+<button aria-checked="true" class="form-btn flex flex-col items-center justify-center p-4 min-h-[92px] rounded-xl border-2 border-primary bg-primary-fixed text-primary font-bold text-center transition-all shadow-sm" onclick="selectForm(this)" role="radio" type="button">
+<span class="material-symbols-outlined text-3xl mb-1" style="font-variation-settings: 'FILL' 1;">pill</span>
+<span class="text-body-md">Pastilla / Comprimido</span>
+</button>
+<button aria-checked="false" class="form-btn flex flex-col items-center justify-center p-4 min-h-[92px] rounded-xl border-2 border-outline-variant bg-surface text-on-surface font-bold text-center hover:bg-surface-container transition-all" onclick="selectForm(this)" role="radio" type="button">
+<span class="material-symbols-outlined text-3xl mb-1">vital_signs</span>
+<span class="text-body-md">Cápsula</span>
+</button>
+<button aria-checked="false" class="form-btn flex flex-col items-center justify-center p-4 min-h-[92px] rounded-xl border-2 border-outline-variant bg-surface text-on-surface font-bold text-center hover:bg-surface-container transition-all" onclick="selectForm(this)" role="radio" type="button">
+<span class="material-symbols-outlined text-3xl mb-1">water_drop</span>
+<span class="text-body-md">Gotas</span>
+</button>
+<button aria-checked="false" class="form-btn flex flex-col items-center justify-center p-4 min-h-[92px] rounded-xl border-2 border-outline-variant bg-surface text-on-surface font-bold text-center hover:bg-surface-container transition-all" onclick="selectForm(this)" role="radio" type="button">
+<span class="material-symbols-outlined text-3xl mb-1">local_pharmacy</span>
+<span class="text-body-md">Sobres / Jarabe</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Campo 3: Instrucciones de toma -->
+<section class="bg-surface-container-lowest rounded-xl p-6 border-2 border-outline-variant shadow-sm">
+<label class="block text-headline-md text-on-surface font-bold mb-2" for="instructions-notes">
+          3. ¿Cómo debes tomarla? (Instrucciones)
+        </label>
+<p class="text-body-md text-on-surface-variant mb-4">Toca una o varias recomendaciones que te dio el médico:</p>
+<!-- Opciones rápidas de un toque -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+<button class="instruction-btn flex items-center gap-3 p-3.5 min-h-[56px] rounded-xl border-2 border-outline-variant bg-surface text-left font-label-md text-on-surface hover:bg-surface-container" onclick="toggleInstruction(this, 'En ayunas')" type="button">
+<span class="material-symbols-outlined text-2xl text-primary">wb_twilight</span>
+<span>En ayunas</span>
+</button>
+<button class="instruction-btn flex items-center gap-3 p-3.5 min-h-[56px] rounded-xl border-2 border-outline-variant bg-surface text-left font-label-md text-on-surface hover:bg-surface-container" onclick="toggleInstruction(this, 'Con la comida / Almuerzo')" type="button">
+<span class="material-symbols-outlined text-2xl text-primary">restaurant</span>
+<span>Con la comida / Almuerzo</span>
+</button>
+<button class="instruction-btn flex items-center gap-3 p-3.5 min-h-[56px] rounded-xl border-2 border-outline-variant bg-surface text-left font-label-md text-on-surface hover:bg-surface-container" onclick="toggleInstruction(this, 'Después de cenar')" type="button">
+<span class="material-symbols-outlined text-2xl text-primary">bedtime</span>
+<span>Después de cenar</span>
+</button>
+<button class="instruction-btn flex items-center gap-3 p-3.5 min-h-[56px] rounded-xl border-2 border-outline-variant bg-surface text-left font-label-md text-on-surface hover:bg-surface-container" onclick="toggleInstruction(this, 'Con un vaso de agua lleno')" type="button">
+<span class="material-symbols-outlined text-2xl text-primary">local_drink</span>
+<span>Con un vaso de agua lleno</span>
+</button>
+</div>
+<label class="block text-label-md font-bold text-on-surface mb-2" for="instructions-notes">Detalles adicionales o consejos:</label>
+<textarea class="w-full text-body-lg p-3 bg-surface border-2 border-outline rounded-xl focus:border-primary focus:ring-4 focus:ring-primary-fixed text-on-surface placeholder:text-outline font-medium resize-y" id="instructions-notes" placeholder="Ejemplo: No tomar con zumo de pomelo, partir por la mitad si cuesta tragar..." rows="3"></textarea>
+<button class="mt-3 w-full min-h-[52px] flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-surface-container-high border-2 border-outline-variant hover:bg-surface-variant text-primary font-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-2xl text-tertiary-container" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span>Dictar instrucciones</span>
+</button>
+</section>
+<!-- Campo 4: Horas de las tomas -->
+<section class="bg-surface-container-lowest rounded-xl p-6 border-2 border-outline-variant shadow-sm">
+<h2 class="text-headline-md text-on-surface font-bold mb-2">
+          4. ¿A qué horas debes tomarla? <span aria-hidden="true" class="text-error">*</span>
+</h2>
+<p class="text-body-md text-on-surface-variant mb-4">Primero indica con qué frecuencia te corresponde tomarla:</p>
+<!-- Selector Frecuencia -->
+<div aria-label="Frecuencia de tomas" class="grid grid-cols-2 gap-3 mb-6" role="radiogroup">
+<button class="freq-btn p-3 min-h-[56px] rounded-xl border-2 border-outline-variant bg-surface text-body-md font-bold text-on-surface hover:bg-surface-container text-center" onclick="setFrequency(this)" type="button">
+            1 vez al día
+          </button>
+<button class="freq-btn p-3 min-h-[56px] rounded-xl border-2 border-primary bg-primary-fixed text-body-md font-bold text-primary text-center shadow-sm" onclick="setFrequency(this)" type="button">
+            2 veces al día
+          </button>
+<button class="freq-btn p-3 min-h-[56px] rounded-xl border-2 border-outline-variant bg-surface text-body-md font-bold text-on-surface hover:bg-surface-container text-center" onclick="setFrequency(this)" type="button">
+            3 veces al día
+          </button>
+<button class="freq-btn p-3 min-h-[56px] rounded-xl border-2 border-outline-variant bg-surface text-body-md font-bold text-on-surface hover:bg-surface-container text-center" onclick="setFrequency(this)" type="button">
+            Según dolor/necesidad
+          </button>
+</div>
+<p class="text-label-md font-bold text-on-surface mb-3">Horas programadas para tu alarma:</p>
+<!-- Tarjetas de Horarios Editables -->
+<div class="space-y-3" id="alarms-container">
+<div class="flex items-center justify-between p-4 bg-surface-container border-2 border-outline-variant rounded-xl min-h-[72px]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">alarm</span>
+<div>
+<span class="text-headline-md font-bold text-primary block leading-none">08:00 AM</span>
+<span class="text-body-md text-on-surface-variant font-medium">Toma 1 • Mañana</span>
+</div>
+</div>
+<button class="min-h-[50px] px-4 py-2 rounded-xl bg-surface-container-lowest border-2 border-primary text-primary font-bold text-label-sm hover:bg-primary-fixed transition-colors" type="button">
+              Cambiar hora
+            </button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container border-2 border-outline-variant rounded-xl min-h-[72px]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">alarm</span>
+<div>
+<span class="text-headline-md font-bold text-primary block leading-none">09:00 PM</span>
+<span class="text-body-md text-on-surface-variant font-medium">Toma 2 • Noche</span>
+</div>
+</div>
+<button class="min-h-[50px] px-4 py-2 rounded-xl bg-surface-container-lowest border-2 border-primary text-primary font-bold text-label-sm hover:bg-primary-fixed transition-colors" type="button">
+              Cambiar hora
+            </button>
+</div>
+</div>
+<button class="mt-4 w-full min-h-[54px] flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 border-dashed border-primary text-primary font-bold text-label-lg hover:bg-primary-fixed-dim/20 transition-colors" type="button">
+<span class="material-symbols-outlined text-2xl font-bold">add_circle</span>
+<span>+ Añadir otra hora</span>
+</button>
+</section>
+<!-- Campo 5: Días de la semana -->
+<section class="bg-surface-container-lowest rounded-xl p-6 border-2 border-outline-variant shadow-sm">
+<h2 class="text-headline-md text-on-surface font-bold mb-2">
+          5. ¿Qué días debes tomarla? <span aria-hidden="true" class="text-error">*</span>
+</h2>
+<p class="text-body-md text-on-surface-variant mb-4">Elige si es para toda la semana o días específicos:</p>
+<!-- Opción rápida destacada por defecto -->
+<div class="mb-5 p-4 rounded-xl border-2 border-secondary bg-secondary-container/40 flex items-center justify-between min-h-[64px]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-xl font-bold text-on-surface">Todos los días (De lunes a domingo)</span>
+</div>
+<span class="text-label-sm px-2.5 py-1 rounded bg-secondary text-on-secondary font-bold">Activo</span>
+</div>
+<!-- Selector táctil de días individuales con círculos grandes -->
+<div>
+<span class="block text-label-md font-bold text-on-surface mb-3">O selecciona días específicos:</span>
+<div aria-label="Días individuales" class="grid grid-cols-7 gap-1 sm:gap-2 text-center" role="group">
+<div>
+<button class="day-btn w-full aspect-square min-w-[42px] max-w-[56px] mx-auto rounded-full border-2 border-primary bg-primary text-on-primary font-bold text-headline-sm flex items-center justify-center shadow" onclick="toggleDay(this)" type="button">
+                L
+              </button>
+<span class="text-xs text-on-surface-variant font-bold mt-1 block">Lun</span>
+</div>
+<div>
+<button class="day-btn w-full aspect-square min-w-[42px] max-w-[56px] mx-auto rounded-full border-2 border-primary bg-primary text-on-primary font-bold text-headline-sm flex items-center justify-center shadow" onclick="toggleDay(this)" type="button">
+                M
+              </button>
+<span class="text-xs text-on-surface-variant font-bold mt-1 block">Mar</span>
+</div>
+<div>
+<button class="day-btn w-full aspect-square min-w-[42px] max-w-[56px] mx-auto rounded-full border-2 border-primary bg-primary text-on-primary font-bold text-headline-sm flex items-center justify-center shadow" onclick="toggleDay(this)" type="button">
+                X
+              </button>
+<span class="text-xs text-on-surface-variant font-bold mt-1 block">Mié</span>
+</div>
+<div>
+<button class="day-btn w-full aspect-square min-w-[42px] max-w-[56px] mx-auto rounded-full border-2 border-primary bg-primary text-on-primary font-bold text-headline-sm flex items-center justify-center shadow" onclick="toggleDay(this)" type="button">
+                J
+              </button>
+<span class="text-xs text-on-surface-variant font-bold mt-1 block">Jue</span>
+</div>
+<div>
+<button class="day-btn w-full aspect-square min-w-[42px] max-w-[56px] mx-auto rounded-full border-2 border-primary bg-primary text-on-primary font-bold text-headline-sm flex items-center justify-center shadow" onclick="toggleDay(this)" type="button">
+                V
+              </button>
+<span class="text-xs text-on-surface-variant font-bold mt-1 block">Vie</span>
+</div>
+<div>
+<button class="day-btn w-full aspect-square min-w-[42px] max-w-[56px] mx-auto rounded-full border-2 border-primary bg-primary text-on-primary font-bold text-headline-sm flex items-center justify-center shadow" onclick="toggleDay(this)" type="button">
+                S
+              </button>
+<span class="text-xs text-on-surface-variant font-bold mt-1 block">Sáb</span>
+</div>
+<div>
+<button class="day-btn w-full aspect-square min-w-[42px] max-w-[56px] mx-auto rounded-full border-2 border-primary bg-primary text-on-primary font-bold text-headline-sm flex items-center justify-center shadow" onclick="toggleDay(this)" type="button">
+                D
+              </button>
+<span class="text-xs text-on-surface-variant font-bold mt-1 block">Dom</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Recordatorio y avisos especiales (Opcional) -->
+<section class="bg-surface-container-lowest rounded-xl p-6 border-2 border-outline-variant shadow-sm">
+<h2 class="text-headline-md text-on-surface font-bold mb-2">
+          6. Avisos y recordatorios de seguridad
+        </h2>
+<p class="text-body-md text-on-surface-variant mb-4">Ayudas para que nunca se te pase ninguna toma:</p>
+<div class="space-y-4">
+<!-- Casilla 1 -->
+<label class="flex items-start gap-4 p-4 rounded-xl border-2 border-outline-variant bg-surface hover:bg-surface-container cursor-pointer min-h-[64px] transition-colors">
+<input checked="" class="w-7 h-7 mt-0.5 rounded border-2 border-outline text-primary focus:ring-primary focus:ring-offset-2 shrink-0 cursor-pointer" type="checkbox"/>
+<div class="flex-1">
+<span class="text-body-xl font-bold text-on-surface block">Avisar con sonido fuerte 15 minutos antes</span>
+<span class="text-body-md text-on-surface-variant">Un tono suave para que te prepares con tu vaso de agua.</span>
+</div>
+</label>
+<!-- Casilla 2 -->
+<label class="flex items-start gap-4 p-4 rounded-xl border-2 border-outline-variant bg-surface hover:bg-surface-container cursor-pointer min-h-[64px] transition-colors">
+<input checked="" class="w-7 h-7 mt-0.5 rounded border-2 border-outline text-primary focus:ring-primary focus:ring-offset-2 shrink-0 cursor-pointer" type="checkbox"/>
+<div class="flex-1">
+<span class="text-body-xl font-bold text-on-surface block">Avisar también a Mariana (Hija) si no confirmo en 30 min</span>
+<span class="text-body-md text-on-surface-variant">Le enviaremos un mensaje de calma a su teléfono móvil.</span>
+</div>
+</label>
+<!-- Control de pastillero/caja -->
+<div class="p-4 rounded-xl border-2 border-outline-variant bg-surface-container">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-tertiary-container text-2xl">inventory_2</span>
+<span class="text-body-xl font-bold text-on-surface">Control de la caja o receta:</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-3">
+              Recordarme renovar receta en farmacia cuando me queden:
+            </p>
+<div class="flex items-center gap-3">
+<select class="min-h-[52px] text-body-xl px-4 py-2 bg-surface-container-lowest border-2 border-outline rounded-xl text-on-surface font-bold">
+<option selected="" value="5">5 pastillas</option>
+<option value="7">7 pastillas</option>
+<option value="10">10 pastillas</option>
+</select>
+<span class="text-body-lg text-on-surface-variant">en la caja.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. Botones de acción al final -->
+<footer class="pt-4 space-y-4">
+<!-- Botón Principal > 60px -->
+<button class="w-full min-h-[64px] py-4 px-6 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-headline-sm font-bold shadow-lg active:scale-[0.99] flex items-center justify-center gap-3 border-2 border-primary transition-all cursor-pointer" onclick="guardarMedicina()" type="button">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xl">Guardar medicina en mi horario</span>
+</button>
+<!-- Botón Secundario Cancelar -->
+<a class="w-full min-h-[54px] py-3 px-6 rounded-xl bg-surface-container hover:bg-surface-variant text-on-surface font-label-lg font-bold border-2 border-outline-variant flex items-center justify-center gap-2 transition-colors text-center" href="#">
+<span>Cancelar y volver a Mis Medicinas</span>
+</a>
+</footer>
+</form>
+</div>
+<script>
+    // Sugerencias de medicinas rápidas
+    function setMedicineName(name) {
+      const input = document.getElementById('medicine-name');
+      input.value = name;
+      input.focus();
+    }
+
+    // Selector único para forma de medicina
+    function selectForm(selectedBtn) {
+      document.querySelectorAll('.form-btn').forEach(btn => {
+        btn.classList.remove('border-primary', 'bg-primary-fixed', 'text-primary');
+        btn.classList.add('border-outline-variant', 'bg-surface', 'text-on-surface');
+        btn.setAttribute('aria-checked', 'false');
+      });
+      selectedBtn.classList.remove('border-outline-variant', 'bg-surface', 'text-on-surface');
+      selectedBtn.classList.add('border-primary', 'bg-primary-fixed', 'text-primary');
+      selectedBtn.setAttribute('aria-checked', 'true');
+    }
+
+    // Toggle para opciones rápidas de instrucciones
+    function toggleInstruction(btn, text) {
+      const isSelected = btn.classList.contains('border-primary');
+      const textarea = document.getElementById('instructions-notes');
+
+      if (isSelected) {
+        btn.classList.remove('border-primary', 'bg-primary-fixed', 'text-primary');
+        btn.classList.add('border-outline-variant', 'bg-surface', 'text-on-surface');
+      } else {
+        btn.classList.remove('border-outline-variant', 'bg-surface', 'text-on-surface');
+        btn.classList.add('border-primary', 'bg-primary-fixed', 'text-primary');
+
+        if (textarea.value.trim() === '') {
+          textarea.value = text;
+        } else if (!textarea.value.includes(text)) {
+          textarea.value += ', ' + text;
+        }
+      }
+    }
+
+    // Selector de frecuencia
+    function setFrequency(btn) {
+      document.querySelectorAll('.freq-btn').forEach(b => {
+        b.classList.remove('border-primary', 'bg-primary-fixed', 'text-primary', 'shadow-sm');
+        b.classList.add('border-outline-variant', 'bg-surface', 'text-on-surface');
+      });
+      btn.classList.remove('border-outline-variant', 'bg-surface', 'text-on-surface');
+      btn.classList.add('border-primary', 'bg-primary-fixed', 'text-primary', 'shadow-sm');
+    }
+
+    // Toggle de días
+    function toggleDay(btn) {
+      const isSelected = btn.classList.contains('bg-primary');
+      if (isSelected) {
+        btn.classList.remove('bg-primary', 'text-on-primary', 'border-primary');
+        btn.classList.add('bg-surface', 'text-on-surface', 'border-outline-variant');
+      } else {
+        btn.classList.remove('bg-surface', 'text-on-surface', 'border-outline-variant');
+        btn.classList.add('bg-primary', 'text-on-primary', 'border-primary');
+      }
+    }
+
+    // Feedback al guardar
+    function guardarMedicina() {
+      const nameInput = document.getElementById('medicine-name');
+      if (!nameInput.value.trim()) {
+        alert("Por favor, escribe o dicta el nombre de la medicina antes de guardar.");
+        nameInput.focus();
+        return;
+      }
+      alert("¡Medicina guardada con éxito! Se han programado tus alarmas sonoras.");
+    }
+  </script>
+</body></html>

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mi Historial de Salud - Mi Salud</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Atkinson Hyperlegible Next Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#ffb77d",
+            "tertiary-container": "#753d00",
+            "primary-fixed-dim": "#a0cafc",
+            "on-secondary-fixed-variant": "#005312",
+            "secondary-fixed": "#a3f69c",
+            "outline": "#72777f",
+            "on-error": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#faf2ee",
+            "primary-container": "#1f4e79",
+            "secondary": "#1b6d24",
+            "on-tertiary-fixed": "#2f1500",
+            "inverse-primary": "#a0cafc",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed": "#002204",
+            "primary-fixed": "#d1e4ff",
+            "surface-variant": "#e9e1dd",
+            "tertiary-fixed": "#ffdcc3",
+            "on-secondary": "#ffffff",
+            "on-surface": "#1e1b19",
+            "secondary-fixed-dim": "#88d982",
+            "on-surface-variant": "#42474f",
+            "surface-container-lowest": "#ffffff",
+            "error": "#ba1a1a",
+            "surface-bright": "#fff8f5",
+            "surface-container": "#f4ece8",
+            "surface-tint": "#35618d",
+            "error-container": "#ffdad6",
+            "tertiary": "#542a00",
+            "on-primary-container": "#95bff1",
+            "on-background": "#1e1b19",
+            "surface": "#fff8f5",
+            "on-error-container": "#93000a",
+            "on-primary-fixed": "#001d35",
+            "on-secondary-container": "#217128",
+            "on-primary-fixed-variant": "#184974",
+            "background": "#fff8f5",
+            "inverse-surface": "#33302d",
+            "surface-container-high": "#eee7e3",
+            "surface-dim": "#e0d8d5",
+            "outline-variant": "#c2c7d0",
+            "surface-container-highest": "#e9e1dd",
+            "inverse-on-surface": "#f7efeb",
+            "primary": "#00375e",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "on-tertiary-container": "#ffa85e",
+            "secondary-container": "#a0f399"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.75rem",
+            "space-md": "1.25rem",
+            "space-xs": "0.5rem",
+            "gutter": "1rem",
+            "space-lg": "1.75rem",
+            "margin": "1.25rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "body-xl": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "body-md": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "body-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "display-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "label-sm": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "label-md": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-sm": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-md": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "label-lg": ["Atkinson Hyperlegible Next", "sans-serif"]
+          },
+          "fontSize": {
+            "body-xl": ["20px", { "lineHeight": "32px", "fontWeight": "500" }],
+            "body-md": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "display-lg": ["36px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-md": ["18px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "headline-sm": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "34px", "fontWeight": "700" }],
+            "label-lg": ["20px", { "lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Atkinson Hyperlegible Next', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<meta content="mobile_tab" name="shell-type"/><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Contenedor Principal de la App Mobile-First con soporte desktop centrado -->
+<div class="w-full max-w-2xl mx-auto flex flex-col flex-1 pb-8">
+<!-- BARRA SUPERIOR DE LA APLICACIÓN -->
+<header class="flex items-center justify-between px-5 py-4 border-b border-surface-variant bg-surface sticky top-0 z-30 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-xl shadow-inner">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+</div>
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-primary">App Asistente</span>
+<h1 class="text-headline-sm text-primary font-bold leading-none">Mi Salud</h1>
+</div>
+</div>
+<a aria-label="Llamar a contacto de urgencia" class="flex items-center gap-2 bg-error-container text-on-error-container hover:bg-error hover:text-on-error transition-colors px-4 py-2.5 rounded-full border border-error/30 font-bold text-label-sm shadow-sm" href="tel:112">
+<span class="material-symbols-outlined text-xl">phone_in_talk</span>
+<span>SOS</span>
+</a>
+</header>
+<!-- BANNER MÉDICO URGENTE (Brand Component Identitario) -->
+<div class="p-4">
+<div class="flex flex-col gap-3 rounded-xl border-2 border-outline-variant/60 bg-surface-container-lowest p-5 shadow-sm transition-all hover:border-outline">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-full bg-error-container text-error flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">emergency</span>
+</div>
+<div class="flex flex-col gap-1 flex-1">
+<p class="text-on-surface text-label-md font-bold leading-tight">Aviso médico urgente</p>
+<p class="text-on-surface-variant text-body-md font-normal leading-relaxed">
+              Si tienes desmayo, dolor fuerte de pecho o falta de aire intensa, llama a emergencias. Esta app no reemplaza la atención médica.
+            </p>
+</div>
+</div>
+<div class="pt-2 border-t border-surface-variant flex justify-end">
+<a class="min-h-[48px] px-4 py-2 inline-flex items-center justify-center gap-2 rounded-lg bg-error text-on-error font-bold text-body-md hover:bg-on-error-container transition-all shadow-sm active:scale-95" href="tel:112">
+<span>Llamar a emergencias (112 / 911)</span>
+<span class="material-symbols-outlined text-xl">call</span>
+</a>
+</div>
+</div>
+</div>
+<!-- CABECERA Y CONTEXTO -->
+<section class="px-5 pt-2 pb-4">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+<span class="text-label-sm text-primary font-bold uppercase tracking-wider">Histórico de bienestar</span>
+</div>
+<h2 class="text-display-lg text-primary font-bold leading-tight mb-2 tracking-normal">Mi Historial de Salud</h2>
+<p class="text-on-surface text-body-lg font-normal leading-relaxed">
+        Revisa día a día cómo te has sentido, tus síntomas y mediciones registradas para compartir con tu médico o familiar.
+      </p>
+</section>
+<!-- FILTROS TEMPORALES ACCESIBLES (Mínimo 48px alto para fácil toque) -->
+<section aria-label="Filtros de periodo de tiempo" class="px-4 py-2">
+<div class="flex flex-wrap items-center gap-2.5 pb-2">
+<!-- Filtro Activo: Última semana -->
+<button aria-pressed="true" class="min-h-[50px] px-5 py-2.5 rounded-full bg-primary-container text-surface-container-lowest font-bold text-label-md flex items-center gap-2 shadow-sm border-2 border-primary-container focus:outline-none focus:ring-4 focus:ring-primary-fixed transition-all" type="button">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>Última semana</span>
+</button>
+<!-- Filtro Secundario: Último mes -->
+<button class="min-h-[50px] px-5 py-2.5 rounded-full bg-surface-container-lowest text-on-surface font-semibold text-label-md border-2 border-outline-variant hover:border-primary hover:bg-surface-container transition-all focus:outline-none focus:ring-2 focus:ring-primary" type="button">
+<span>Último mes</span>
+</button>
+<!-- Filtro Secundario: Desde mi última cita -->
+<button class="min-h-[50px] px-5 py-2.5 rounded-full bg-surface-container-lowest text-on-surface font-semibold text-label-md border-2 border-outline-variant hover:border-primary hover:bg-surface-container transition-all focus:outline-none focus:ring-2 focus:ring-primary" type="button">
+<span>Desde mi última cita (hace 14 días)</span>
+</button>
+</div>
+<!-- Resumen amigable accesible -->
+<div class="flex items-center gap-2 pt-2 px-1 text-on-surface-variant font-medium text-body-md">
+<span class="material-symbols-outlined text-primary text-xl">folder_shared</span>
+<span>Mostrando <strong>7 registros guardados</strong> en este periodo</span>
+</div>
+</section>
+<!-- LISTA CRONOLÓGICA POR DÍA -->
+<main class="px-4 py-4 space-y-5" id="historial-lista"><div class="flex flex-col w-full space-y-6">
+<!-- CABECERA DE LA PANTALLA -->
+<section class="space-y-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">help_center</span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Tu cuaderno de consulta</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-primary font-bold leading-tight">Preguntas para mi doctor</h2>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+      Apunta tus dudas con calma cuando te acuerdes para que no se te olviden en tu próxima consulta médica.
+    </p>
+<!-- NOTA DESTACADA EXIGIDA: INCLUSIÓN EN EL REPORTE MÉDICO -->
+<div class="bg-surface-container-low p-4 rounded-xl shadow-sm flex items-start gap-3 mt-2">
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">assignment</span>
+</div>
+<div class="space-y-1">
+<p class="font-label-md text-label-md text-primary font-bold">Estas preguntas saldrán en tu reporte médico</p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Tu médico o enfermera podrá leerlas impresas en papel o en la pantalla durante tu cita médica.
+        </p>
+</div>
+</div>
+</section>
+<!-- FORMULARIO PARA AÑADIR NUEVA PREGUNTA -->
+<section aria-labelledby="nueva-pregunta-heading" class="bg-surface-container-lowest p-5 rounded-xl shadow-sm space-y-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">edit_note</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold" id="nueva-pregunta-heading">
+        ¿Qué quieres preguntarle a tu médico?
+      </h3>
+</div>
+<!-- Campo de texto espacioso y accesible -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface block" for="texto-pregunta">
+        Escribe aquí tu duda:
+      </label>
+<textarea class="w-full p-4 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest shadow-inner resize-none" id="texto-pregunta" placeholder="Ejemplo: ¿Puedo tomar la medicina con el desayuno? ¿Por qué me mareo por las mañanas?..." rows="3"></textarea>
+</div>
+<!-- Botón de dictado por voz (alta visibilidad para personas mayores) -->
+<button class="w-full min-h-[56px] px-5 py-3 rounded-xl bg-secondary-container text-on-secondary-fixed flex items-center justify-center gap-3 font-label-md text-label-md shadow-sm active:scale-98 transition-transform" id="btn-dictar" onclick="simularDictado()" type="button">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span id="texto-btn-dictar">Dictar pregunta con mi voz</span>
+</button>
+<!-- Sugerencias rápidas en chips accesibles (tap target > 48px) -->
+<div class="space-y-2 pt-1">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Preguntas habituales (toca para rellenar):</p>
+<div class="flex flex-wrap gap-2">
+<button class="min-h-[48px] px-4 py-2 rounded-full bg-surface-container-high text-on-surface font-body-md text-body-md hover:bg-surface-container-highest shadow-sm flex items-center gap-1.5 active:scale-95 transition-transform text-left" onclick="insertarSugerencia('¿Debo cambiar la dosis de alguna de mis medicinas?')" type="button">
+<span class="material-symbols-outlined text-lg text-primary">add_circle</span>
+<span>¿Debo cambiar la dosis?</span>
+</button>
+<button class="min-h-[48px] px-4 py-2 rounded-full bg-surface-container-high text-on-surface font-body-md text-body-md hover:bg-surface-container-highest shadow-sm flex items-center gap-1.5 active:scale-95 transition-transform text-left" onclick="insertarSugerencia('¿Es normal el mareo leve que siento a veces?')" type="button">
+<span class="material-symbols-outlined text-lg text-primary">add_circle</span>
+<span>¿Es normal el mareo?</span>
+</button>
+<button class="min-h-[48px] px-4 py-2 rounded-full bg-surface-container-high text-on-surface font-body-md text-body-md hover:bg-surface-container-highest shadow-sm flex items-center gap-1.5 active:scale-95 transition-transform text-left" onclick="insertarSugerencia('¿Cuándo debo volver a hacerme una revisión médica?')" type="button">
+<span class="material-symbols-outlined text-lg text-primary">add_circle</span>
+<span>¿Cuándo debo volver?</span>
+</button>
+</div>
+</div>
+<!-- Botón principal de guardado (>54px) -->
+<div class="pt-2">
+<button class="w-full min-h-[58px] px-6 py-3 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-3 shadow-md hover:bg-primary-container active:scale-98 transition-all" onclick="guardarPregunta()" type="button">
+<span class="material-symbols-outlined text-2xl font-bold">add</span>
+<span>Guardar pregunta en mi lista</span>
+</button>
+</div>
+</section>
+<!-- SECCIÓN PREGUNTAS PENDIENTES (3 TARJETAS) -->
+<section aria-labelledby="pendientes-heading" class="space-y-4">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">pending_actions</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold" id="pendientes-heading">
+          Preguntas pendientes para tu cita (3)
+        </h3>
+</div>
+</div>
+<!-- TARJETA 1 (Prioritaria / Mareos) -->
+<article class="bg-surface-container-lowest p-5 rounded-xl shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">schedule</span>
+          Anotada hace 2 días
+        </span>
+<span class="font-label-sm text-label-sm text-error font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+          Importante
+        </span>
+</div>
+<p class="font-headline-sm text-headline-sm text-primary font-bold leading-snug">
+        ¿Por qué me dan mareos leves al levantarme de la cama por la mañana?
+      </p>
+<!-- Casilla accesible completa (>56px alto) -->
+<button class="w-full min-h-[56px] px-4 py-2.5 rounded-xl bg-surface-container-low text-on-surface flex items-center justify-between text-left shadow-sm active:scale-98 transition-transform" onclick="toggleRespuesta(this)" type="button">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-2xl checkbox-icon">check_box_outline_blank</span>
+</div>
+<span class="font-label-md text-label-md font-bold">Marcar: Ya me respondieron</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-xl">touch_app</span>
+</button>
+<!-- Espacio para anotar respuesta médica -->
+<div class="bg-surface-container-low p-4 rounded-xl space-y-2">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-primary font-bold flex items-center gap-1.5" for="resp-1">
+<span class="material-symbols-outlined text-base">clinical_notes</span>
+            Respuesta que me dio el doctor:
+          </label>
+<button class="min-h-[48px] px-3 py-1 rounded-lg bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm flex items-center gap-1.5 shadow-sm active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span>Dictar</span>
+</button>
+</div>
+<textarea class="w-full p-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-on-surface-variant focus:outline-none shadow-sm resize-none" id="resp-1" placeholder="Anotar aquí lo que dijo el médico para no olvidarlo..." rows="2"></textarea>
+</div>
+<!-- Acciones discretas pero con touch target grande -->
+<div class="flex items-center justify-end gap-2 pt-1">
+<button class="min-h-[48px] px-4 py-2 rounded-lg text-primary font-label-sm text-label-sm flex items-center gap-1.5 hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">edit</span>
+<span>Editar</span>
+</button>
+<button class="min-h-[48px] px-4 py-2 rounded-lg text-error font-label-sm text-label-sm flex items-center gap-1.5 hover:bg-error-container/30 transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">delete</span>
+<span>Borrar</span>
+</button>
+</div>
+</article>
+<!-- TARJETA 2 (Medicina con desayuno) -->
+<article class="bg-surface-container-lowest p-5 rounded-xl shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">schedule</span>
+          Anotada el Lunes
+        </span>
+</div>
+<p class="font-headline-sm text-headline-sm text-primary font-bold leading-snug">
+        ¿Puedo tomar el Omeprazol junto con un vaso de leche o solo con agua?
+      </p>
+<!-- Casilla accesible -->
+<button class="w-full min-h-[56px] px-4 py-2.5 rounded-xl bg-surface-container-low text-on-surface flex items-center justify-between text-left shadow-sm active:scale-98 transition-transform" onclick="toggleRespuesta(this)" type="button">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-2xl checkbox-icon">check_box_outline_blank</span>
+</div>
+<span class="font-label-md text-label-md font-bold">Marcar: Ya me respondieron</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-xl">touch_app</span>
+</button>
+<!-- Espacio para respuesta -->
+<div class="bg-surface-container-low p-4 rounded-xl space-y-2">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-primary font-bold flex items-center gap-1.5" for="resp-2">
+<span class="material-symbols-outlined text-base">clinical_notes</span>
+            Respuesta que me dio el doctor:
+          </label>
+<button class="min-h-[48px] px-3 py-1 rounded-lg bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm flex items-center gap-1.5 shadow-sm active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span>Dictar</span>
+</button>
+</div>
+<textarea class="w-full p-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-on-surface-variant focus:outline-none shadow-sm resize-none" id="resp-2" placeholder="Anotar aquí lo que dijo el médico para no olvidarlo..." rows="2"></textarea>
+</div>
+<div class="flex items-center justify-end gap-2 pt-1">
+<button class="min-h-[48px] px-4 py-2 rounded-lg text-primary font-label-sm text-label-sm flex items-center gap-1.5 hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">edit</span>
+<span>Editar</span>
+</button>
+<button class="min-h-[48px] px-4 py-2 rounded-lg text-error font-label-sm text-label-sm flex items-center gap-1.5 hover:bg-error-container/30 transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">delete</span>
+<span>Borrar</span>
+</button>
+</div>
+</article>
+<!-- TARJETA 3 (Análisis previos) -->
+<article class="bg-surface-container-lowest p-5 rounded-xl shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">schedule</span>
+          Anotada la semana pasada
+        </span>
+</div>
+<p class="font-headline-sm text-headline-sm text-primary font-bold leading-snug">
+        ¿Necesito análisis de sangre antes de la cita de Noviembre?
+      </p>
+<!-- Casilla accesible -->
+<button class="w-full min-h-[56px] px-4 py-2.5 rounded-xl bg-surface-container-low text-on-surface flex items-center justify-between text-left shadow-sm active:scale-98 transition-transform" onclick="toggleRespuesta(this)" type="button">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-2xl checkbox-icon">check_box_outline_blank</span>
+</div>
+<span class="font-label-md text-label-md font-bold">Marcar: Ya me respondieron</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-xl">touch_app</span>
+</button>
+<!-- Espacio para respuesta -->
+<div class="bg-surface-container-low p-4 rounded-xl space-y-2">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-primary font-bold flex items-center gap-1.5" for="resp-3">
+<span class="material-symbols-outlined text-base">clinical_notes</span>
+            Respuesta que me dio el doctor:
+          </label>
+<button class="min-h-[48px] px-3 py-1 rounded-lg bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm flex items-center gap-1.5 shadow-sm active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span>Dictar</span>
+</button>
+</div>
+<textarea class="w-full p-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-on-surface-variant focus:outline-none shadow-sm resize-none" id="resp-3" placeholder="Anotar aquí lo que dijo el médico para no olvidarlo..." rows="2"></textarea>
+</div>
+<div class="flex items-center justify-end gap-2 pt-1">
+<button class="min-h-[48px] px-4 py-2 rounded-lg text-primary font-label-sm text-label-sm flex items-center gap-1.5 hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">edit</span>
+<span>Editar</span>
+</button>
+<button class="min-h-[48px] px-4 py-2 rounded-lg text-error font-label-sm text-label-sm flex items-center gap-1.5 hover:bg-error-container/30 transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">delete</span>
+<span>Borrar</span>
+</button>
+</div>
+</article>
+</section>
+<!-- SECCIÓN PREGUNTAS YA RESPONDIDAS (HISTORIAL RESOLUTIVO) -->
+<section aria-labelledby="respondidas-heading" class="space-y-3">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold" id="respondidas-heading">
+          Preguntas ya contestadas (1)
+        </h3>
+</div>
+</div>
+<!-- TARJETA COMPLETADA CON RESPUESTA GUARDADA -->
+<article class="bg-surface-container-lowest p-5 rounded-xl shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          Respondida en consulta anterior
+        </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">5 de Octubre</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface font-semibold line-through decoration-on-surface-variant/40">
+        ¿Puedo caminar 30 minutos todos los días?
+      </p>
+<!-- Recuadro destacado con la respuesta del profesional -->
+<div class="bg-secondary-container/40 p-4 rounded-xl space-y-2">
+<div class="flex items-center gap-2 text-secondary font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">stethoscope</span>
+<span>Respuesta del Dr. Silva:</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed pl-1">
+          "Sí, excelente hábito. Caminar en llano y a paso tranquilo, descansando en un banco si nota fatiga o falta de aire."
+        </p>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+          Guardada en tu historial médico
+        </span>
+<button class="min-h-[48px] px-3 py-1 rounded-lg text-primary font-label-sm text-label-sm flex items-center gap-1 hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">history</span>
+<span>Ver detalles</span>
+</button>
+</div>
+</article>
+</section>
+<!-- ACCIÓN DE ASISTENCIA / COMPARTIR CON FAMILIAR O IMPRIMIR -->
+<section class="bg-primary-fixed p-5 rounded-xl shadow-sm space-y-4">
+<div class="flex items-start gap-3">
+<div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">share</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline-sm text-headline-sm text-primary font-bold">
+          Lleva tus preguntas a mano
+        </h4>
+<p class="font-body-md text-body-md text-on-primary-fixed leading-relaxed">
+          Comparte tu lista con Mariana (tu hija) o prepárala para que el médico la revise en su consulta.
+        </p>
+</div>
+</div>
+<div class="flex flex-col gap-2.5 pt-1">
+<button class="w-full min-h-[56px] px-5 py-3 rounded-xl bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center gap-3 shadow-md hover:bg-primary-container active:scale-98 transition-transform" type="button">
+<span class="material-symbols-outlined text-2xl">send</span>
+<span>Enviar lista a Mariana (WhatsApp / Mensaje)</span>
+</button>
+<button class="w-full min-h-[56px] px-5 py-3 rounded-xl bg-surface-container-lowest text-primary font-label-md text-label-md flex items-center justify-center gap-3 shadow-sm hover:bg-surface-container active:scale-98 transition-transform" type="button">
+<span class="material-symbols-outlined text-2xl">print</span>
+<span>Imprimir lista en papel grande</span>
+</button>
+</div>
+</section>
+</div>
+<script>
+  function insertarSugerencia(texto) {
+    const textarea = document.getElementById('texto-pregunta');
+    if (textarea) {
+      textarea.value = texto;
+      textarea.focus();
+    }
+  }
+
+  function simularDictado() {
+    const btn = document.getElementById('btn-dictar');
+    const textoBtn = document.getElementById('texto-btn-dictar');
+    const textarea = document.getElementById('texto-pregunta');
+
+    if (textoBtn && textarea) {
+      textoBtn.textContent = 'Escuchando... hable ahora';
+      btn.classList.add('bg-error-container', 'text-on-error-container');
+      btn.classList.remove('bg-secondary-container', 'text-on-secondary-fixed');
+
+      setTimeout(() => {
+        textarea.value = '¿Cada cuánto tiempo me debo medir la presión después de desayunar?';
+        textoBtn.textContent = 'Dictar pregunta con mi voz';
+        btn.classList.remove('bg-error-container', 'text-on-error-container');
+        btn.classList.add('bg-secondary-container', 'text-on-secondary-fixed');
+      }, 1600);
+    }
+  }
+
+  function guardarPregunta() {
+    const textarea = document.getElementById('texto-pregunta');
+    if (textarea && textarea.value.trim() !== '') {
+      alert('Pregunta guardada correctamente. Se ha añadido a tu lista para la próxima consulta.');
+      textarea.value = '';
+    } else {
+      alert('Por favor escribe o dicta primero una duda para guardarla.');
+      if (textarea) textarea.focus();
+    }
+  }
+
+  function toggleRespuesta(button) {
+    const icon = button.querySelector('.checkbox-icon');
+    if (icon) {
+      const isChecked = icon.textContent.trim() === 'check_box';
+      if (isChecked) {
+        icon.textContent = 'check_box_outline_blank';
+        button.classList.remove('bg-secondary-container', 'text-on-secondary-fixed');
+        button.classList.add('bg-surface-container-low', 'text-on-surface');
+      } else {
+        icon.textContent = 'check_box';
+        button.classList.remove('bg-surface-container-low', 'text-on-surface');
+        button.classList.add('bg-secondary-container', 'text-on-secondary-fixed');
+      }
+    }
+  }
+</script></main>
+<!-- BOTÓN DE ACCIÓN COMPARTIR / EXPORTAR (Accesible y prominente) -->
+<div class="px-4 pt-3 pb-6">
+<div class="bg-primary-fixed/30 border-2 border-primary/30 p-5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary text-surface-container-lowest flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-2xl">share</span>
+</div>
+<div>
+<h4 class="text-headline-sm font-bold text-primary">¿Tienes cita pronto?</h4>
+<p class="text-body-md text-on-surface font-normal">Envía este resumen antes de tu consulta o a un familiar.</p>
+</div>
+</div>
+<button class="w-full sm:w-auto min-h-[52px] px-6 py-3 rounded-xl bg-primary text-surface-container-lowest hover:bg-primary-container font-bold text-label-md flex items-center justify-center gap-2.5 shadow-md active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-2xl">description</span>
+<span>Compartir este historial con mi médico o Mariana (Hija)</span>
+</button>
+</div>
+</div>
+<!-- NAVEGACIÓN INFERIOR INMUTABLE (Brand Component BottomNavBar) -->
+<nav aria-label="Navegación principal de la app" class="sticky bottom-0 z-40 bg-surface border-t border-surface-variant shadow-lg">
+<div class="flex gap-2 border-t border-[#e9edf1] bg-gray-50 px-4 pb-3 pt-2">
+<!-- Inicio -->
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#57748e]" href="#">
+<div class="text-[#57748e] flex h-8 items-center justify-center" data-icon="House" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z"></path>
+</svg>
+</div>
+<p class="text-[#57748e] text-xs font-medium leading-normal tracking-[0.015em]">Inicio</p>
+</a>
+<!-- Calendario -->
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#57748e]" href="#">
+<div class="text-[#57748e] flex h-8 items-center justify-center" data-icon="Calendar" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-96-88v64a8,8,0,0,1-16,0V132.94l-4.42,2.22a8,8,0,0,1-7.16-14.32l16-8A8,8,0,0,1,112,120Zm59.16,30.45L152,176h16a8,8,0,0,1,0,16H136a8,8,0,0,1-6.4-12.8l28.78-38.37A8,8,0,1,0,145.07,132a8,8,0,1,1-13.85-8A24,24,0,0,1,176,136,23.76,23.76,0,0,1,171.16,150.45Z"></path>
+</svg>
+</div>
+<p class="text-[#57748e] text-xs font-medium leading-normal tracking-[0.015em]">Calendario</p>
+</a>
+<!-- Medicinas -->
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#57748e]" href="#">
+<div class="text-[#57748e] flex h-8 items-center justify-center" data-icon="Pill" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M216.42,39.6a53.26,53.26,0,0,0-75.32,0L39.6,141.09a53.26,53.26,0,0,0,75.32,75.31h0L216.43,114.91A53.31,53.31,0,0,0,216.42,39.6ZM103.61,205.09h0a37.26,37.26,0,0,1-52.7-52.69L96,107.31,148.7,160ZM205.11,103.6,160,148.69,107.32,96l45.1-45.09a37.26,37.26,0,0,1,52.69,52.69ZM189.68,82.34a8,8,0,0,1,0,11.32l-24,24a8,8,0,1,1-11.31-11.32l24-24A8,8,0,0,1,189.68,82.34Z"></path>
+</svg>
+</div>
+<p class="text-[#57748e] text-xs font-medium leading-normal tracking-[0.015em]">Medicinas</p>
+</a>
+<!-- Historial (ACTIVO) -->
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-[#101519]" href="#">
+<div class="text-[#101519] flex h-8 items-center justify-center" data-icon="ClockCounterClockwise" data-size="24px" data-weight="fill">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M224,128A96,96,0,0,1,62.11,197.82a8,8,0,1,1,11-11.64A80,80,0,1,0,71.43,71.43C67.9,75,64.58,78.51,61.35,82L77.66,98.34A8,8,0,0,1,72,112H32a8,8,0,0,1-8-8V64a8,8,0,0,1,13.66-5.66L50,70.7c3.22-3.49,6.54-7,10.06-10.55A96,96,0,0,1,224,128ZM128,72a8,8,0,0,0-8,8v48a8,8,0,0,0,3.88,6.86l40,24a8,8,0,1,0,8.24-13.72L136,123.47V80A8,8,0,0,0,128,72Z"></path>
+</svg>
+</div>
+<p class="text-[#101519] text-xs font-medium leading-normal tracking-[0.015em] font-bold">Historial</p>
+</a>
+<!-- Reporte -->
+<a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#57748e]" href="#">
+<div class="text-[#57748e] flex h-8 items-center justify-center" data-icon="FileText" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"></path>
+</svg>
+</div>
+<p class="text-[#57748e] text-xs font-medium leading-normal tracking-[0.015em]">Reporte</p>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mi día - Serenidad Salud</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-container": "#ffa85e",
+            "secondary-container": "#a0f399",
+            "on-primary-fixed": "#001d35",
+            "primary-container": "#1f4e79",
+            "tertiary": "#542a00",
+            "surface-bright": "#fff8f5",
+            "surface-dim": "#e0d8d5",
+            "on-primary": "#ffffff",
+            "tertiary-fixed": "#ffdcc3",
+            "surface-container-highest": "#e9e1dd",
+            "primary": "#00375e",
+            "primary-fixed": "#d1e4ff",
+            "surface-container": "#f4ece8",
+            "on-error-container": "#93000a",
+            "tertiary-container": "#753d00",
+            "on-surface-variant": "#42474f",
+            "secondary": "#1b6d24",
+            "on-surface": "#1e1b19",
+            "on-tertiary-fixed": "#2f1500",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#c2c7d0",
+            "tertiary-fixed-dim": "#ffb77d",
+            "surface": "#fff8f5",
+            "surface-tint": "#35618d",
+            "inverse-surface": "#33302d",
+            "inverse-primary": "#a0cafc",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed": "#002204",
+            "on-secondary-container": "#217128",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "secondary-fixed-dim": "#88d982",
+            "background": "#fff8f5",
+            "on-error": "#ffffff",
+            "error": "#ba1a1a",
+            "surface-container-high": "#eee7e3",
+            "primary-fixed-dim": "#a0cafc",
+            "surface-container-low": "#faf2ee",
+            "inverse-on-surface": "#f7efeb",
+            "on-primary-fixed-variant": "#184974",
+            "surface-container-lowest": "#ffffff",
+            "on-background": "#1e1b19",
+            "on-secondary-fixed-variant": "#005312",
+            "surface-variant": "#e9e1dd",
+            "on-primary-container": "#95bff1",
+            "secondary-fixed": "#a3f69c",
+            "outline": "#72777f"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline-sm": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "label-sm": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-md": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "label-md": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "display-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "body-md": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "body-xl": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "label-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "body-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-lg": ["Atkinson Hyperlegible Next", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-sm": ["22px", {"lineHeight": "30px", "fontWeight": "600"}],
+            "label-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "headline-md": ["24px", {"lineHeight": "34px", "fontWeight": "700"}],
+            "label-md": ["18px", {"lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+            "display-lg": ["36px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-md": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+            "body-xl": ["20px", {"lineHeight": "32px", "fontWeight": "500"}],
+            "label-lg": ["20px", {"lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "headline-lg": ["28px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-lg min-h-screen flex flex-col justify-between selection:bg-primary-fixed selection:text-primary pb-32">
+<!-- Encabezado Minimalista y Accesible (Flujo Enfocado con Back-to-Main) -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur border-b border-outline-variant px-4 py-3 sm:px-6 shadow-sm">
+<div class="max-w-2xl mx-auto flex items-center justify-between gap-3">
+<button aria-label="Volver atrás" class="flex items-center justify-center min-w-[52px] min-h-[52px] rounded-xl bg-surface-container hover:bg-surface-variant text-primary border border-outline-variant transition-colors focus:ring-4 focus:ring-primary/20" type="button">
+<span class="material-symbols-outlined text-[30px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex-1 text-center">
+<h1 class="text-headline-md text-primary font-bold">Mi día</h1>
+<p class="text-body-md text-on-surface-variant font-medium">Registro de hoy</p>
+</div>
+<div class="min-w-[52px] flex items-center justify-end">
+<span class="material-symbols-outlined text-[30px] text-primary" data-icon="calendar_today">calendar_today</span>
+</div>
+</div>
+</header>
+<!-- Contenedor Principal Adaptado para Personas Mayores -->
+<main class="max-w-2xl mx-auto w-full px-4 sm:px-6 pt-5 pb-8 space-y-8">
+<!-- Mensaje Calmo de Bienvenida -->
+<section class="bg-surface-container-low rounded-xl p-5 border border-outline-variant">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-[36px] mt-0.5 shrink-0" data-icon="favorite" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<div>
+<h2 class="text-headline-sm text-primary mb-1">Cuidamos de ti</h2>
+<p class="text-body-md text-on-surface">Cuéntanos con tranquilidad cómo ha ido tu jornada para adaptar tus cuidados y recomendaciones.</p>
+</div>
+</div>
+</section>
+<!-- SECCIÓN 1: ¿Cómo te sentiste hoy? -->
+<section class="bg-surface-container-lowest rounded-xl p-5 sm:p-6 border-2 border-outline-variant shadow-sm space-y-4">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-label-sm">1</span>
+<h2 class="text-headline-sm text-on-surface font-bold">¿Cómo te sentiste hoy?</h2>
+</div>
+<p class="text-body-md text-on-surface-variant">Toca la opción que mejor represente tu ánimo y bienestar físico:</p>
+<div class="grid grid-cols-5 gap-2 sm:gap-3 pt-2">
+<!-- Muy mal -->
+<button class="group flex flex-col items-center justify-center p-2 sm:p-3 min-h-[96px] rounded-xl border-2 border-outline-variant bg-surface hover:bg-surface-container focus:ring-4 focus:ring-primary/20 transition-all" type="button">
+<span class="material-symbols-outlined text-[42px] sm:text-[48px] text-outline group-hover:scale-105 transition-transform" data-icon="sentiment_very_dissatisfied">sentiment_very_dissatisfied</span>
+<span class="text-body-md text-on-surface font-semibold mt-1">Muy mal</span>
+</button>
+<!-- Regular -->
+<button class="group flex flex-col items-center justify-center p-2 sm:p-3 min-h-[96px] rounded-xl border-2 border-outline-variant bg-surface hover:bg-surface-container focus:ring-4 focus:ring-primary/20 transition-all" type="button">
+<span class="material-symbols-outlined text-[42px] sm:text-[48px] text-outline group-hover:scale-105 transition-transform" data-icon="sentiment_dissatisfied">sentiment_dissatisfied</span>
+<span class="text-body-md text-on-surface font-semibold mt-1">Regular</span>
+</button>
+<!-- Bien (Seleccionada) -->
+<button aria-pressed="true" class="group flex flex-col items-center justify-center p-2 sm:p-3 min-h-[96px] rounded-xl border-[3px] border-primary bg-primary-fixed/40 shadow-sm focus:ring-4 focus:ring-primary/30 transition-all ring-2 ring-primary/20" type="button">
+<span class="material-symbols-outlined text-[42px] sm:text-[48px] text-primary scale-110" data-icon="sentiment_satisfied" data-weight="fill" style="font-variation-settings: 'FILL' 1;">sentiment_satisfied</span>
+<span class="text-body-md text-primary font-bold mt-1">Bien</span>
+</button>
+<!-- Muy bien -->
+<button class="group flex flex-col items-center justify-center p-2 sm:p-3 min-h-[96px] rounded-xl border-2 border-outline-variant bg-surface hover:bg-surface-container focus:ring-4 focus:ring-primary/20 transition-all" type="button">
+<span class="material-symbols-outlined text-[42px] sm:text-[48px] text-outline group-hover:scale-105 transition-transform" data-icon="sentiment_very_satisfied">sentiment_very_satisfied</span>
+<span class="text-body-md text-on-surface font-semibold mt-1">Muy bien</span>
+</button>
+<!-- Excelente -->
+<button class="group flex flex-col items-center justify-center p-2 sm:p-3 min-h-[96px] rounded-xl border-2 border-outline-variant bg-surface hover:bg-surface-container focus:ring-4 focus:ring-primary/20 transition-all" type="button">
+<span class="material-symbols-outlined text-[42px] sm:text-[48px] text-outline group-hover:scale-105 transition-transform" data-icon="mood">mood</span>
+<span class="text-body-md text-on-surface font-semibold mt-1">Excelente</span>
+</button>
+</div>
+</section>
+<!-- SECCIÓN 2: ¿Pudiste hacer tus actividades normales hoy? -->
+<section class="bg-surface-container-lowest rounded-xl p-5 sm:p-6 border-2 border-outline-variant shadow-sm space-y-4">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-label-sm">2</span>
+<h2 class="text-headline-sm text-on-surface font-bold">¿Pudiste hacer tus actividades normales hoy?</h2>
+</div>
+<p class="text-body-md text-on-surface-variant">Como caminar, asearte, vestirte o realizar labores de casa:</p>
+<div class="space-y-3 pt-1">
+<!-- Opción 1: Seleccionada -->
+<button aria-pressed="true" class="w-full min-h-[64px] flex items-center justify-between px-5 py-3 rounded-xl border-[3px] border-secondary bg-secondary-fixed/30 text-on-surface shadow-sm focus:ring-4 focus:ring-secondary/30 transition-all text-left" type="button">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary text-[34px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-label-md font-bold text-on-surface">Sí, todo normal</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[28px]" data-icon="done">done</span>
+</button>
+<!-- Opción 2 -->
+<button class="w-full min-h-[64px] flex items-center justify-between px-5 py-3 rounded-xl border-2 border-outline-variant bg-surface hover:bg-surface-container text-on-surface focus:ring-4 focus:ring-primary/20 transition-all text-left" type="button">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline text-[34px]" data-icon="front_hand">front_hand</span>
+<span class="text-label-md text-on-surface font-medium">Con dificultad</span>
+</div>
+<span class="w-6 h-6 rounded-full border-2 border-outline-variant"></span>
+</button>
+<!-- Opción 3 -->
+<button class="w-full min-h-[64px] flex items-center justify-between px-5 py-3 rounded-xl border-2 border-outline-variant bg-surface hover:bg-surface-container text-on-surface focus:ring-4 focus:ring-primary/20 transition-all text-left" type="button">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline text-[34px]" data-icon="bed">bed</span>
+<span class="text-label-md text-on-surface font-medium">Casi nada (necesité reposo)</span>
+</div>
+<span class="w-6 h-6 rounded-full border-2 border-outline-variant"></span>
+</button>
+</div>
+</section>
+<!-- SECCIÓN 3: ¿Sentiste algo? (Síntomas y alertas) -->
+<section class="bg-surface-container-lowest rounded-xl p-5 sm:p-6 border-2 border-outline-variant shadow-sm space-y-4">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-label-sm">3</span>
+<h2 class="text-headline-sm text-on-surface font-bold">¿Sentiste algo fuera de lo común?</h2>
+</div>
+<p class="text-body-md text-on-surface-variant">Toca cualquier categoría para marcar molestias que hayas notado:</p>
+<div class="space-y-3 pt-1">
+<!-- Categoría 1: Cabeza y equilibrio (ABIERTA / DESPLEGADA) -->
+<details class="group border-2 border-primary rounded-xl overflow-hidden bg-surface-container-low" open="">
+<summary class="flex items-center justify-between p-4 cursor-pointer min-h-[64px] list-none select-none bg-primary-fixed/20 hover:bg-primary-fixed/30 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="psychology">psychology</span>
+<span class="text-label-md text-primary font-bold">Cabeza y equilibrio</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[32px] transition-transform group-open:rotate-180" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</summary>
+<div class="p-4 bg-surface-container-lowest border-t border-outline-variant space-y-4">
+<!-- Síntoma 1 Seleccionado -->
+<div class="p-3 rounded-lg border-2 border-primary/40 bg-surface-container-low/60 space-y-3">
+<div class="flex items-start justify-between gap-2">
+<div>
+<h3 class="text-label-md text-on-surface font-bold">Mareo al levantarse</h3>
+<p class="text-body-md text-on-surface-variant">Sensación de giro o inestabilidad al ponerse de pie</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-[30px]" data-icon="check_box" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_box</span>
+</div>
+<!-- Nivel de Severidad -->
+<div class="pt-2">
+<p class="text-body-md text-on-surface font-semibold mb-2">¿Con qué intensidad lo sentiste?</p>
+<div class="grid grid-cols-3 gap-2">
+<button class="min-h-[56px] border-2 border-outline-variant bg-surface rounded-lg font-bold text-body-md text-on-surface hover:bg-surface-container" type="button">Leve</button>
+<button class="min-h-[56px] border-[3px] border-primary-container bg-primary-container text-on-primary rounded-lg font-bold text-body-md shadow-sm" type="button">Media</button>
+<button class="min-h-[56px] border-2 border-outline-variant bg-surface rounded-lg font-bold text-body-md text-on-surface hover:bg-surface-container" type="button">Fuerte</button>
+</div>
+</div>
+</div>
+<!-- Síntoma 2 Sin seleccionar -->
+<div class="p-3 rounded-lg border border-outline-variant bg-surface flex items-start justify-between gap-2 cursor-pointer hover:bg-surface-container transition-colors">
+<div>
+<h3 class="text-label-md text-on-surface font-semibold">Dolor de cabeza</h3>
+<p class="text-body-md text-on-surface-variant">Presión o molestia constante en la frente o nuca</p>
+</div>
+<span class="material-symbols-outlined text-outline text-[30px]" data-icon="check_box_outline_blank">check_box_outline_blank</span>
+</div>
+</div>
+</details>
+<!-- Categoría 2: Corazón -->
+<details class="group border-2 border-outline-variant rounded-xl overflow-hidden bg-surface">
+<summary class="flex items-center justify-between p-4 cursor-pointer min-h-[64px] list-none select-none hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="monitor_heart">monitor_heart</span>
+<div>
+<span class="text-label-md text-on-surface font-bold block">Corazón</span>
+<span class="text-body-md text-on-surface-variant font-normal">Palpitaciones o pinchazos en el pecho</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[32px] transition-transform group-open:rotate-180" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</summary>
+<div class="p-4 bg-surface-container-lowest border-t border-outline-variant space-y-2">
+<label class="flex items-center justify-between p-3 rounded-lg border border-outline-variant hover:bg-surface-container cursor-pointer">
+<span class="text-body-md font-medium text-on-surface">Palpitaciones rápidas o latidos irregulares</span>
+<input class="w-6 h-6 text-primary rounded border-outline focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg border border-outline-variant hover:bg-surface-container cursor-pointer">
+<span class="text-body-md font-medium text-on-surface">Pinchazo o molestia en el pecho</span>
+<input class="w-6 h-6 text-primary rounded border-outline focus:ring-primary" type="checkbox"/>
+</label>
+</div>
+</details>
+<!-- Categoría 3: Respiración -->
+<details class="group border-2 border-outline-variant rounded-xl overflow-hidden bg-surface">
+<summary class="flex items-center justify-between p-4 cursor-pointer min-h-[64px] list-none select-none hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="air">air</span>
+<div>
+<span class="text-label-md text-on-surface font-bold block">Respiración</span>
+<span class="text-body-md text-on-surface-variant font-normal">Falta de aire o tos al caminar</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[32px] transition-transform group-open:rotate-180" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</summary>
+<div class="p-4 bg-surface-container-lowest border-t border-outline-variant space-y-2">
+<label class="flex items-center justify-between p-3 rounded-lg border border-outline-variant hover:bg-surface-container cursor-pointer">
+<span class="text-body-md font-medium text-on-surface">Sensación de ahogo al subir escaleras</span>
+<input class="w-6 h-6 text-primary rounded border-outline focus:ring-primary" type="checkbox"/>
+</label>
+</div>
+</details>
+<!-- Categoría 4: Energía y sueño -->
+<details class="group border-2 border-outline-variant rounded-xl overflow-hidden bg-surface">
+<summary class="flex items-center justify-between p-4 cursor-pointer min-h-[64px] list-none select-none hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="battery_low">battery_low</span>
+<div>
+<span class="text-label-md text-on-surface font-bold block">Energía y sueño</span>
+<span class="text-body-md text-on-surface-variant font-normal">Cansancio extremo o pesadez en el cuerpo</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[32px] transition-transform group-open:rotate-180" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</summary>
+<div class="p-4 bg-surface-container-lowest border-t border-outline-variant space-y-2">
+<label class="flex items-center justify-between p-3 rounded-lg border border-outline-variant hover:bg-surface-container cursor-pointer">
+<span class="text-body-md font-medium text-on-surface">Cansancio inusual sin haber hecho esfuerzo</span>
+<input class="w-6 h-6 text-primary rounded border-outline focus:ring-primary" type="checkbox"/>
+</label>
+</div>
+</details>
+<!-- Categoría 5: Líquidos y digestión -->
+<details class="group border-2 border-outline-variant rounded-xl overflow-hidden bg-surface">
+<summary class="flex items-center justify-between p-4 cursor-pointer min-h-[64px] list-none select-none hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="water_drop">water_drop</span>
+<div>
+<span class="text-label-md text-on-surface font-bold block">Líquidos y digestión</span>
+<span class="text-body-md text-on-surface-variant font-normal">Hinchazón de tobillos o estómago pesado</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[32px] transition-transform group-open:rotate-180" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</summary>
+<div class="p-4 bg-surface-container-lowest border-t border-outline-variant space-y-2">
+<label class="flex items-center justify-between p-3 rounded-lg border border-outline-variant hover:bg-surface-container cursor-pointer">
+<span class="text-body-md font-medium text-on-surface">Pies o tobillos más hinchados de lo habitual</span>
+<input class="w-6 h-6 text-primary rounded border-outline focus:ring-primary" type="checkbox"/>
+</label>
+</div>
+</details>
+<!-- Categoría 6: Otros -->
+<details class="group border-2 border-outline-variant rounded-xl overflow-hidden bg-surface">
+<summary class="flex items-center justify-between p-4 cursor-pointer min-h-[64px] list-none select-none hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="more_horiz">more_horiz</span>
+<span class="text-label-md text-on-surface font-bold">Otros malestares</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[32px] transition-transform group-open:rotate-180" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</summary>
+<div class="p-4 bg-surface-container-lowest border-t border-outline-variant">
+<p class="text-body-md text-on-surface-variant">Si sentiste algo que no está en la lista, puedes detallarlo en el botón de abajo.</p>
+</div>
+</details>
+<!-- Botón táctil destacado ancho completo: Otro escribir qué pasó -->
+<button class="w-full min-h-[58px] mt-2 flex items-center justify-center gap-3 px-4 py-3 rounded-xl border-2 border-dashed border-primary bg-primary-fixed/20 hover:bg-primary-fixed/30 text-primary font-bold text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[26px]" data-icon="edit_note">edit_note</span>
+<span>Otro: escribir qué me pasó</span>
+</button>
+</div>
+</section>
+<!-- SECCIÓN 4: Mis mediciones (Opcional) -->
+<section class="bg-surface-container-lowest rounded-xl p-5 sm:p-6 border-2 border-outline-variant shadow-sm space-y-5">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-label-sm">4</span>
+<h2 class="text-headline-sm text-on-surface font-bold">Mis mediciones</h2>
+</div>
+<span class="px-3 py-1 bg-surface-container rounded-full text-body-md text-on-surface-variant font-medium border border-outline-variant">
+          (Opcional)
+        </span>
+</div>
+<!-- Cuadro de ayuda visible y tranquilizador -->
+<div class="p-4 rounded-xl bg-tertiary-fixed/30 border border-tertiary/20 flex items-start gap-3">
+<span aria-label="Consejo" class="text-[28px] shrink-0" role="img">💡</span>
+<p class="text-body-md text-on-tertiary-fixed-variant font-medium leading-relaxed">
+<strong>Consejo de enfermería:</strong> Mide el pulso y la tensión sentado tranquilamente, habiendo descansado al menos 5 minutos antes.
+        </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+<!-- Pulso -->
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant space-y-2">
+<label class="text-label-md font-bold text-on-surface flex items-center gap-2" for="input-pulso">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="favorite">favorite</span>
+            Pulso cardíaco
+          </label>
+<div class="flex items-center gap-3">
+<input class="w-full h-14 text-headline-sm font-bold text-center bg-surface-container-lowest border-2 border-outline-variant rounded-xl focus:border-primary focus:ring-primary" id="input-pulso" placeholder="Ej. 72" type="number"/>
+<span class="text-body-md font-bold text-on-surface-variant min-w-[50px]">lpm</span>
+</div>
+</div>
+<!-- Horas de sueño con controles grandes -->
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant space-y-2">
+<label class="text-label-md font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="bedtime">bedtime</span>
+            Horas de descanso
+          </label>
+<div class="flex items-center justify-between gap-2 bg-surface-container-lowest border-2 border-outline-variant rounded-xl p-1 h-14">
+<button aria-label="Menos horas" class="w-12 h-full flex items-center justify-center rounded-lg bg-surface-container text-primary font-bold text-2xl hover:bg-surface-variant active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined" data-icon="remove">remove</span>
+</button>
+<span class="text-headline-sm font-bold text-primary">7.5 <span class="text-body-md text-on-surface-variant font-medium">horas</span></span>
+<button aria-label="Más horas" class="w-12 h-full flex items-center justify-center rounded-lg bg-surface-container text-primary font-bold text-2xl hover:bg-surface-variant active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+<!-- Presión Arterial -->
+<div class="sm:col-span-2 bg-surface-container-low p-4 rounded-xl border border-outline-variant space-y-3">
+<label class="text-label-md font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="speed">speed</span>
+            Presión arterial (Tensión)
+          </label>
+<div class="grid grid-cols-2 gap-3 items-center">
+<div>
+<span class="text-body-md font-medium text-on-surface-variant block mb-1">Alta (Sistólica)</span>
+<div class="relative">
+<input class="w-full h-14 text-headline-sm font-bold text-center bg-surface-container-lowest border-2 border-outline-variant rounded-xl focus:border-primary focus:ring-primary" placeholder="120" type="number"/>
+</div>
+</div>
+<div>
+<span class="text-body-md font-medium text-on-surface-variant block mb-1">Baja (Diastólica)</span>
+<div class="relative">
+<input class="w-full h-14 text-headline-sm font-bold text-center bg-surface-container-lowest border-2 border-outline-variant rounded-xl focus:border-primary focus:ring-primary" placeholder="80" type="number"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Peso -->
+<div class="sm:col-span-2 bg-surface-container-low p-4 rounded-xl border border-outline-variant space-y-2">
+<label class="text-label-md font-bold text-on-surface flex items-center gap-2" for="input-peso">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="scale">scale</span>
+            Peso de hoy (en ayunas)
+          </label>
+<div class="flex items-center gap-3">
+<input class="w-full h-14 text-headline-sm font-bold text-center bg-surface-container-lowest border-2 border-outline-variant rounded-xl focus:border-primary focus:ring-primary" id="input-peso" placeholder="Ej. 68.5" step="0.1" type="number"/>
+<span class="text-body-md font-bold text-on-surface-variant min-w-[50px]">kg</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECCIÓN 5: ¿Qué pasó hoy? Cuéntalo con tus palabras -->
+<section class="bg-surface-container-lowest rounded-xl p-5 sm:p-6 border-2 border-outline-variant shadow-sm space-y-4">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-label-sm">5</span>
+<h2 class="text-headline-sm text-on-surface font-bold">¿Qué pasó hoy? Cuéntalo con tus palabras</h2>
+</div>
+<p class="text-body-md text-on-surface-variant">Puedes escribir o pulsar el botón para dictar con tu propia voz:</p>
+<div class="space-y-4">
+<textarea class="w-full p-4 text-body-md leading-relaxed rounded-xl border-2 border-outline-variant bg-surface focus:border-primary focus:ring-primary placeholder:text-outline" placeholder="Escribe aquí si hubo algo especial hoy, qué comiste, si saliste a caminar o cómo te sentiste..." rows="4"></textarea>
+<!-- Botón accesible de dictado por voz (Altura > 58px) -->
+<button class="w-full min-h-[58px] flex items-center justify-center gap-3 px-6 py-3 rounded-xl border-2 border-primary-container bg-surface-container-low hover:bg-surface-container text-primary font-bold text-label-md transition-all shadow-sm focus:ring-4 focus:ring-primary/20" type="button">
+<span class="material-symbols-outlined text-primary text-[30px]" data-icon="mic" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span>Grabar o dictar con mi voz</span>
+</button>
+</div>
+</section>
+<!-- Nota de confirmación visual -->
+<div class="flex items-center justify-center gap-2 text-on-surface-variant text-body-md text-center py-2">
+<span class="material-symbols-outlined text-secondary text-[24px]" data-icon="lock">lock</span>
+<span>Tus datos son privados y se guardan de forma segura para tu médico.</span>
+</div>
+</main>
+<!-- BOTTOM ACTION BAR FIJA: Botón prominente de 64px para personas mayores -->
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur border-t-2 border-outline-variant p-4 shadow-[0_-4px_12px_rgba(0,0,0,0.08)]">
+<div class="max-w-2xl mx-auto">
+<button class="w-full min-h-[64px] rounded-xl bg-primary-container hover:bg-primary text-on-primary font-bold text-label-lg flex items-center justify-center gap-3 shadow-lg active:scale-[0.99] transition-all focus:ring-4 focus:ring-primary/30" type="button">
+<span class="material-symbols-outlined text-[32px] text-secondary-container" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Guardar mi día</span>
+</button>
+</div>
+</div>
+</body></html>

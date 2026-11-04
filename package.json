@@ -1,42 +1,23 @@
 {
-  "name": "salud-app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "lint": "eslint .",
-    "start": "next start",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ramon-Lop-Dev/salud-app.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "name": "mi-salud-pwa",
+  "version": "0.1.0",
+  "private": true,
   "type": "module",
-  "bugs": {
-    "url": "https://github.com/Ramon-Lop-Dev/salud-app/issues"
+  "scripts": {
+    "dev": "vite",
+    "start": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "deploy:push": "node scripts/deploy-push.js"
   },
-  "homepage": "https://github.com/Ramon-Lop-Dev/salud-app#readme",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.118.0"
+  },
   "devDependencies": {
-    "@react-pdf/renderer": "^4.9.0",
-    "@supabase/ssr": "^0.12.7",
-    "@tailwindcss/postcss": "^4.3.4",
-    "@types/node": "^26.6.6",
-    "@types/react": "^19.3.0",
-    "autoprefixer": "^10.6.2",
-    "eslint": "^10.14.0",
-    "eslint-config-next": "^16.4.4",
-    "next": "^16.4.4",
-    "postcss": "^8.5.32",
-    "prettier": "^3.9.10",
-    "react": "^19.3.1",
-    "react-dom": "^19.3.1",
-    "tailwindcss": "^4.3.4",
-    "typescript": "^5.9.3"
+    "supabase": "^3.0.0",
+    "vite": "^8.3.5"
   }
 }

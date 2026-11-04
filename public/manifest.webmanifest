@@ -1,20 +1,16 @@
 {
-  "name": "Salud Mayor Móvil",
-  "short_name": "Salud Mayor",
-  "description": "Aplicación de acompañamiento y registro de salud personal.",
+  "id": "/",
+  "name": "Mi Salud · Serenidad",
+  "short_name": "Mi Salud",
+  "description": "Registro personal de salud, medicinas y citas.",
   "lang": "es",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "background_color": "#fff8f5",
   "theme_color": "#1f4e79",
   "icons": [
-    {
-      "src": "/icons/icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    }
+    { "src": "/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
   ]
 }

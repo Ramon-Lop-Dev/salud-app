@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Acceso - Mi Salud</title>
+<!-- Atkinson Hyperlegible Font for maximum senior readability -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config based on Design Tokens -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-container": "#ffa85e",
+            "background": "#fff8f5",
+            "surface-container": "#f4ece8",
+            "outline-variant": "#c2c7d0",
+            "surface-container-lowest": "#ffffff",
+            "on-error": "#ffffff",
+            "surface-container-low": "#faf2ee",
+            "surface": "#fff8f5",
+            "surface-bright": "#fff8f5",
+            "on-tertiary": "#ffffff",
+            "on-error-container": "#93000a",
+            "surface-container-high": "#eee7e3",
+            "surface-dim": "#e0d8d5",
+            "on-secondary-fixed-variant": "#005312",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#88d982",
+            "tertiary": "#542a00",
+            "secondary-container": "#a0f399",
+            "inverse-surface": "#33302d",
+            "on-tertiary-fixed": "#2f1500",
+            "on-primary-fixed": "#001d35",
+            "inverse-on-surface": "#f7efeb",
+            "tertiary-container": "#753d00",
+            "primary": "#00375e",
+            "on-surface": "#1e1b19",
+            "on-surface-variant": "#42474f",
+            "surface-container-highest": "#e9e1dd",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "inverse-primary": "#a0cafc",
+            "outline": "#72777f",
+            "primary-fixed-dim": "#a0cafc",
+            "surface-variant": "#e9e1dd",
+            "secondary-fixed": "#a3f69c",
+            "on-secondary-container": "#217128",
+            "secondary": "#1b6d24",
+            "tertiary-fixed-dim": "#ffb77d",
+            "error-container": "#ffdad6",
+            "primary-fixed": "#d1e4ff",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed-variant": "#184974",
+            "on-secondary-fixed": "#002204",
+            "primary-container": "#1f4e79",
+            "surface-tint": "#35618d",
+            "tertiary-fixed": "#ffdcc3",
+            "on-background": "#1e1b19",
+            "on-primary-container": "#95bff1",
+            "error": "#ba1a1a"
+          },
+          "fontFamily": {
+            "sans": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "display-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "headline-lg": ["Atkinson Hyperlegible Next", "sans-serif"],
+            "body-lg": ["Atkinson Hyperlegible Next", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    input:focus {
+      outline: 4px solid #1f4e79 !important;
+      outline-offset: 2px !important;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#FAF9F6] text-on-surface antialiased flex flex-col font-sans selection:bg-primary-fixed selection:text-primary">
+<!-- Accessible Skip Link -->
+<a class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-primary text-white p-4 rounded-xl font-bold text-[18px]" href="#main-form">
+    Saltar directamente al formulario de entrada
+  </a>
+<!-- TOP EMERGENCY BANNER (Strictly non-dismissible, persistent, high contrast, warm light red container) -->
+<header class="w-full bg-[#fde8e8] border-b-2 border-[#f8b4b4] px-4 py-4 sm:px-6 shadow-sm" role="banner">
+<div class="max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+<div class="flex items-start gap-3.5">
+<span aria-hidden="true" class="material-symbols-outlined text-[#991b1b] shrink-0 mt-0.5 text-[32px]" style="font-variation-settings: 'FILL' 1;">
+          warning
+        </span>
+<div class="flex flex-col">
+<span class="text-[#7f1d1d] font-bold text-[19px] leading-tight mb-1">Aviso urgente de salud</span>
+<p class="text-[#7f1d1d] text-[18px] leading-relaxed font-semibold">
+            Si tienes desmayo, dolor fuerte de pecho o falta de aire intensa, llama a emergencias. Esta app no reemplaza la atención médica.
+          </p>
+</div>
+</div>
+<a class="inline-flex items-center justify-center gap-2 bg-[#991b1b] text-white px-5 py-3 rounded-xl font-bold text-[19px] shrink-0 shadow hover:bg-[#7f1d1d] focus:outline focus:outline-4 focus:outline-black active:scale-95 transition min-h-[52px]" href="tel:112">
+<span aria-hidden="true" class="material-symbols-outlined text-[24px]">call</span>
+        Llamar al 112 / 911
+      </a>
+</div>
+</header>
+<!-- MAIN AUTH CONTAINER -->
+<main class="flex-1 flex flex-col items-center justify-center px-4 py-8 sm:py-12">
+<div class="w-full max-w-lg bg-surface-container-lowest rounded-3xl border-2 border-outline-variant p-6 sm:p-10 shadow-lg">
+<!-- Top Center Brand Icon -->
+<div class="flex flex-col items-center text-center mb-8">
+<div class="size-24 rounded-full bg-[#fbebe8] border-2 border-[#f7cfca] flex items-center justify-center mb-4 shadow-sm">
+<img alt="Logotipo de salud que muestra un corazón rojo suave en estilo limpio y estilizado" class="w-[80px] h-[80px] object-contain drop-shadow-sm" data-alt="A soft stylized crimson red medical heart symbol resting centered inside a calm warm beige circle, illuminated by gentle diffused natural morning daylight. Minimalist, uncluttered healthcare aesthetic with compassionate warm tones, crisp high-contrast outlines for senior adult legibility, modern clean vector graphic." src="{{DATA:IMAGE:IMAGE_2}}"/>
+</div>
+<h1 class="text-[#101519] text-[32px] sm:text-[36px] font-bold leading-tight tracking-tight">
+          Mi salud
+        </h1>
+<p class="text-on-surface text-[20px] font-medium leading-relaxed mt-2 max-w-md">
+          Bienvenido a su registro diario de salud
+        </p>
+</div>
+<!-- Login Form -->
+<form class="flex flex-col gap-6" id="main-form" onsubmit="event.preventDefault();">
+<!-- Email Field -->
+<div class="flex flex-col">
+<label class="text-on-surface text-[20px] font-bold mb-2 flex items-center gap-2" for="correo">
+<span aria-hidden="true" class="material-symbols-outlined text-primary text-[26px]">mail</span>
+            Correo electrónico
+          </label>
+<input autocomplete="email" class="w-full h-[64px] px-5 rounded-2xl border-2 border-outline text-[20px] text-on-surface bg-surface-container-lowest placeholder:text-outline focus:border-primary-container focus:ring-0 transition" id="correo" name="correo" placeholder="ejemplo@correo.com" required="" type="email"/>
+<span class="text-on-surface-variant text-[18px] mt-1.5 font-normal">
+            Escriba aquí la dirección con la que se registró
+          </span>
+</div>
+<!-- Password Field with Show/Hide Toggle -->
+<div class="flex flex-col">
+<label class="text-on-surface text-[20px] font-bold mb-2 flex items-center gap-2" for="contrasena">
+<span aria-hidden="true" class="material-symbols-outlined text-primary text-[26px]">lock</span>
+            Contraseña
+          </label>
+<div class="relative flex items-center">
+<input autocomplete="current-password" class="w-full h-[64px] pl-5 pr-32 rounded-2xl border-2 border-outline text-[20px] text-on-surface bg-surface-container-lowest placeholder:text-outline focus:border-primary-container focus:ring-0 transition" id="contrasena" name="contrasena" placeholder="Su clave secreta" required="" type="password"/>
+<!-- Explicit and Large Toggle Button -->
+<button aria-label="Mostrar u ocultar contraseña escrita" class="absolute right-2 top-2 bottom-2 px-3.5 bg-surface-container-high hover:bg-surface-container-highest border border-outline rounded-xl flex items-center gap-1.5 text-on-surface font-bold text-[18px] transition active:scale-95 min-h-[48px]" id="toggle-password" onclick="togglePasswordVisibility()" type="button">
+<span aria-hidden="true" class="material-symbols-outlined text-on-surface text-[24px]" id="eye-icon">visibility</span>
+<span id="eye-text">Mostrar</span>
+</button>
+</div>
+</div>
+<!-- Primary Action Button: Massive, 64px, Highly Visible -->
+<div class="mt-4">
+<button class="w-full h-[64px] bg-[#1F4E79] hover:bg-[#183f62] active:bg-[#13324f] text-white font-bold text-[20px] rounded-2xl shadow-md flex items-center justify-center gap-3 transition-transform active:scale-[0.99] border-2 border-[#1F4E79]" type="submit">
+<span aria-hidden="true" class="material-symbols-outlined text-[28px]">login</span>
+            Entrar
+          </button>
+</div>
+<!-- Secondary Option: Forgot Password Only (No register / create account) -->
+<div class="text-center mt-2">
+<a class="inline-block py-3 px-4 text-[#1F4E79] hover:text-[#002847] text-[18px] font-bold underline underline-offset-4 rounded-xl focus:outline focus:outline-4 focus:outline-primary transition" href="#">
+            Olvidé mi contraseña
+          </a>
+</div>
+</form>
+</div>
+</main>
+<!-- Accessible Footer note -->
+<footer class="py-6 px-4 text-center text-on-surface-variant text-[18px]">
+<div class="max-w-md mx-auto flex items-center justify-center gap-2">
+<span aria-hidden="true" class="material-symbols-outlined text-secondary text-[24px]">verified_user</span>
+<span>Sus datos de salud están protegidos y seguros.</span>
+</div>
+</footer>
+<!-- Toggle Password Visibility Logic -->
+<script>
+    function togglePasswordVisibility() {
+      const pwdInput = document.getElementById('contrasena');
+      const eyeIcon = document.getElementById('eye-icon');
+      const eyeText = document.getElementById('eye-text');
+
+      if (pwdInput.type === 'password') {
+        pwdInput.type = 'text';
+        eyeIcon.textContent = 'visibility_off';
+        eyeText.textContent = 'Ocultar';
+      } else {
+        pwdInput.type = 'password';
+        eyeIcon.textContent = 'visibility';
+        eyeText.textContent = 'Mostrar';
+      }
+    }
+  </script>
+</body></html>
