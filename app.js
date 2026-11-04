@@ -204,7 +204,7 @@ function profileView() {
       <div class="field"><label for="device-notes">Notas</label><textarea id="device-notes" name="deviceNotes" maxlength="2000">${esc(device.notes || '')}</textarea></div>
     </div></details>
     <button class="button" type="submit">${icon('check')} Guardar cambios</button><button class="button secondary" type="button" data-action="export-data">${icon('download')} Descargar una copia de mis datos</button><button class="button neutral" type="button" data-action="sign-out">Cerrar sesión</button>
-  </form><section class="card soft notification-settings"><h2>Avisos de medicinas y citas</h2><p>Elige si quieres recibir recordatorios en este dispositivo. Puedes cambiarlo cuando quieras.</p><button class="button secondary" type="button" data-action="push-settings">${state.pushEnabled ? 'Desactivar avisos en este dispositivo' : 'Activar avisos en este dispositivo'}</button><p class="hint">Los avisos dependen de la conexión y de los ajustes del dispositivo. No reemplazan una alarma médica.</p></section><section class="card soft"><h2>Tu privacidad</h2><p>Tus registros son personales. Cierra sesión al terminar si compartes este dispositivo.</p></section>`;
+  </form><section class="card soft notification-settings"><h2>Avisos de medicinas y citas</h2><p>Elige si quieres recibir recordatorios en este dispositivo. Puedes cambiarlo cuando quieras.</p><button class="button secondary" type="button" data-action="push-settings">${state.pushEnabled ? 'Desactivar avisos en este dispositivo' : 'Activar avisos en este dispositivo'}</button><p class="hint">Los avisos dependen de la conexión y de los ajustes del dispositivo. No reemplazan una alarma médica.</p></section><section class="card soft"><h2>Contraseña</h2><p>Puedes cambiar tu contraseña cuando quieras. Se te pedirá que elijas una nueva.</p><button class="button secondary" type="button" data-action="change-password">${icon('key')} Cambiar contraseña</button></section><section class="card soft"><h2>Tu privacidad</h2><p>Tus registros son personales. Cierra sesión al terminar si compartes este dispositivo.</p></section>`;
 }
 function loginView() {
   return `<div class="auth-heading"><p class="eyebrow">Bienvenido</p><h1>Tu salud, en un solo lugar</h1><p>Entra con el correo y la contraseña que te entregó tu familiar o equipo de cuidado.</p></div><form class="form-grid" id="login-form"><div class="field"><label for="login-email">Correo electrónico</label><input id="login-email" name="email" type="email" required autocomplete="username" maxlength="254" placeholder="nombre@correo.com" /></div><div class="field"><label for="login-password">Contraseña</label><input id="login-password" name="password" type="password" required autocomplete="current-password" maxlength="128" placeholder="Escribe tu contraseña" /></div><button class="button" type="submit" ${authBusy ? 'disabled' : ''}>${authBusy ? 'Un momento…' : 'Entrar a Mi Salud'}</button><a class="button text" href="#/recover">Olvidé mi contraseña</a><p class="hint">¿Necesitas ayuda para entrar? Pide apoyo a tu persona de confianza.</p></form>`;
@@ -487,6 +487,9 @@ app.addEventListener('click', async (event) => {
   }
   if (action === 'push-settings') {
     try { await togglePushNotifications(); } catch { showToast('No pudimos activar los avisos. Revisa los ajustes de tu dispositivo o pide ayuda.'); }
+  }
+  if (action === 'change-password') {
+    navigate('password');
   }
   if (action === 'voice-notes') startVoiceDictation(target.dataset.target);
   if (action === 'voice-stop') stopVoiceDictation();
